@@ -1,0 +1,99 @@
+
+@startuml
+left to right direction
+
+:Reader: as reader
+:Journalist: as journalist
+:Admin: as admin
+
+rectangle Nexo {
+    
+    
+    
+    
+    
+    
+    (Authentication) as authentication
+    (Registration) as registration
+    
+    (view journalist profile) as view_journalist_profile
+    
+    (follow journalist) as follow_journalist
+    (unfollow journalist) as unfollow_journalist
+    
+    
+    (like article) as like_article
+    (unlike article) as unlike_article
+    (report article) as report_article
+    
+    (view article) as view_article
+    (create article) as create_article
+    (edit article) as edit_article
+    (delete article) as delete_article
+    
+    (create user) as create_user    
+    (edit user) as edit_user
+    (delete user) as delete_user
+    (view user) as view_user
+    
+    
+    (view all articles) as view_all_articles
+    
+    
+    
+    authentication ...> registration :<<include>>
+    registration ...> authentication :<<extend>>
+    
+    
+    reader -- view_journalist_profile
+    reader -- follow_journalist
+    reader -- unfollow_journalist
+    reader -- like_article
+    reader -- unlike_article
+    reader -- report_article
+    reader -- view_all_articles
+    
+    reader --- authentication    
+    admin --- authentication
+    
+    journalist --- create_article
+    journalist --- view_article
+    journalist --- edit_article
+    journalist --- delete_article
+    
+    admin -|> journalist
+    admin -|> reader
+    
+    admin --- view_user
+    admin --- create_user
+    admin --- edit_user
+    admin --- delete_user
+    
+    (delete report) as delete_report
+    (view all reports) as view_all_reports
+    
+    admin --- delete_report 
+    admin --- view_all_reports
+    
+    view_all_reports ..> authentication :<<include>>
+    delete_report ..> authentication :<<include>>
+    
+    create_user ..> authentication :<<include>>
+    edit_user ..> authentication :<<include>>
+    delete_user ..> authentication :<<include>>
+    view_user ..> authentication :<<include>>
+    
+    create_article ..> authentication :<<include>>
+    edit_article ..> create_article :<<include>>
+    delete_article ..> create_article :<<include>>
+    
+    
+    follow_journalist ..>  authentication :<<include>>
+    unfollow_journalist ..>  authentication :<<include>>
+    like_article ..>  authentication :<<include>>
+    unlike_article ..>  authentication :<<include>>
+    report_article ..>  authentication :<<include>>
+    
+    
+}
+@enduml

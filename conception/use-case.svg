@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1364px" preserveAspectRatio="none" style="width:1350px;height:1364px;background:#FFFFFF;" version="1.1" viewBox="0 0 1350 1364" width="1350px" zoomAndPan="magnify"><defs/><g><!--MD5=[11f5a59c7fe1ec63ab6229154f81e090]
+cluster Nexo--><g id="cluster_Nexo"><rect height="836" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1.0;fill:none;" width="1113" x="231" y="359.061"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="39" x="768" y="374.0561">Nexo</text></g><g id="elem_authentication"><ellipse cx="929.7754" cy="794.1161" fill="#F1F1F1" rx="75.7754" ry="17.5551" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="872.7754" y="797.8636">Authentication</text></g><g id="elem_registration"><ellipse cx="1259.6011" cy="795.1812" fill="#F1F1F1" rx="68.6011" ry="16.1202" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="1212.1011" y="798.9288">Registration</text></g><g id="elem_view_journalist_profile"><ellipse cx="342.4604" cy="887.0531" fill="#F1F1F1" rx="95.4604" ry="21.4921" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154" x="265.4604" y="889.8998">view journalist profile</text></g><g id="elem_follow_journalist"><ellipse cx="645.7532" cy="684.0116" fill="#F1F1F1" rx="77.7532" ry="17.9506" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="586.6994" y="687.6419">follow journalist</text></g><g id="elem_unfollow_journalist"><ellipse cx="645.8592" cy="756.9328" fill="#F1F1F1" rx="84.8592" ry="19.3718" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130" x="580.8592" y="759.7795">unfollow journalist</text></g><g id="elem_like_article"><ellipse cx="646.0594" cy="827.2729" fill="#F1F1F1" rx="64.0594" ry="15.2119" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="605.0594" y="831.0204">like article</text></g><g id="elem_unlike_article"><ellipse cx="646.0634" cy="893.9737" fill="#F1F1F1" rx="70.0634" ry="16.4127" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="596.5634" y="897.7212">unlike article</text></g><g id="elem_report_article"><ellipse cx="646.0529" cy="962.2716" fill="#F1F1F1" rx="71.5529" ry="16.7106" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="594.5529" y="966.0191">report article</text></g><g id="elem_view_article"><ellipse cx="342.613" cy="1029.1836" fill="#F1F1F1" rx="66.113" ry="15.6226" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="82" x="298.613" y="1032.9312">view article</text></g><g id="elem_create_article"><ellipse cx="646.0529" cy="1162.2716" fill="#F1F1F1" rx="71.5529" ry="16.7106" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="594.5529" y="1166.0191">create article</text></g><g id="elem_edit_article"><ellipse cx="342.5766" cy="1094.9763" fill="#F1F1F1" rx="65.0766" ry="15.4153" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="300.0766" y="1098.7239">edit article</text></g><g id="elem_delete_article"><ellipse cx="342.5529" cy="1162.2716" fill="#F1F1F1" rx="71.5529" ry="16.7106" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="291.0529" y="1166.0191">delete article</text></g><g id="elem_create_user"><ellipse cx="645.7655" cy="1029.1141" fill="#F1F1F1" rx="65.7655" ry="15.5531" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81" x="602.2655" y="1032.8617">create user</text></g><g id="elem_edit_user"><ellipse cx="646.0799" cy="1094.8121" fill="#F1F1F1" rx="57.0799" ry="14.7511" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63" x="611.5799" y="1098.5597">edit user</text></g><g id="elem_delete_user"><ellipse cx="645.7655" cy="410.1141" fill="#F1F1F1" rx="65.7655" ry="15.5531" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81" x="602.2655" y="413.8617">delete user</text></g><g id="elem_view_user"><ellipse cx="645.8197" cy="475.8281" fill="#F1F1F1" rx="59.3197" ry="14.7671" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="609.8197" y="479.5757">view user</text></g><g id="elem_view_all_articles"><ellipse cx="342.6676" cy="961.1945" fill="#F1F1F1" rx="76.1676" ry="17.6335" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109" x="285.1676" y="964.9421">view all articles</text></g><g id="elem_delete_report"><ellipse cx="645.9293" cy="542.8469" fill="#F1F1F1" rx="71.9293" ry="16.7859" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="593.9293" y="546.5944">delete report</text></g><g id="elem_view_all_reports"><ellipse cx="646.0612" cy="613.2732" fill="#F1F1F1" rx="76.5612" ry="17.7122" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="588.0612" y="617.0208">view all reports</text></g><!--MD5=[e1c93bc9be729354515e9ba3224548de]
+entity reader--><g id="elem_reader"><ellipse cx="158.5" cy="534.561" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M158.5,542.561 L158.5,569.561 M145.5,550.561 L171.5,550.561 M158.5,569.561 L145.5,584.561 M158.5,569.561 L171.5,584.561 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="133" y="599.0561">Reader</text></g><!--MD5=[5afa11775076fc31892853e24a1ac1b6]
+entity journalist--><g id="elem_journalist"><ellipse cx="39" cy="1101.561" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M39,1109.561 L39,1136.561 M26,1117.561 L52,1117.561 M39,1136.561 L26,1151.561 M39,1136.561 L52,1151.561 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="6" y="1166.0561">Journalist</text></g><!--MD5=[79a439086b036a57b90a01d7b2f8bbd1]
+entity admin--><g id="elem_admin"><ellipse cx="39" cy="534.561" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M39,542.561 L39,569.561 M26,550.561 L52,550.561 M39,569.561 L26,584.561 M39,569.561 L52,584.561 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="16" y="599.0561">Admin</text></g><!--MD5=[733214b4abb3e6b46ca096503df59544]
+link authentication to registration--><g id="link_authentication_registration"><path d="M993.817,803.568 C1016.78,806.606 1043.01,809.567 1067,811.061 C1094.95,812.8 1102.05,812.794 1130,811.061 C1151.81,809.708 1175.59,807.076 1196.69,804.33 " fill="none" id="authentication-to-registration" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="1201.71,803.669,1192.2624,800.8864,1196.7534,804.3261,1193.3137,808.817,1201.71,803.669" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="1068" y="807.1279">«include»</text></g><!--MD5=[ad16fe5804610bda2f31cf431c4c29c6]
+link registration to authentication--><g id="link_registration_authentication"><path d="M1192.15,791.986 C1172.18,791.193 1150.2,790.453 1130,790.061 C1090.65,789.295 1046.92,790.003 1010.5,791.024 " fill="none" id="registration-to-authentication" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="1005.183,791.177,1014.2936,794.9182,1010.181,791.0341,1014.065,786.9214,1005.183,791.177" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="1068" y="785.1279">«extend»</text></g><!--MD5=[f5849ad47db2ab27ec17b1ec4f299195]
+link reader to view_journalist_profile--><g id="link_reader_view_journalist_profile"><path d="M177.499,602.142 C188.04,624.335 201.665,652.835 214,678.061 C217.929,686.096 218.638,688.252 223,696.061 C258.21,759.085 304.415,830.766 327.336,865.678 " fill="none" id="reader-view_journalist_profile" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[971349217363768e14f7bfa6557a49b3]
+link reader to follow_journalist--><g id="link_reader_follow_journalist"><path d="M163.693,525.887 C169.371,494.554 182.71,452.054 214,431.061 C330.996,352.565 424.774,338.51 531,431.061 C604.408,495.018 501.951,570.649 561,648.061 C568.794,658.279 580.066,665.635 591.834,670.917 " fill="none" id="reader-follow_journalist" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a08907e6248818a97515e125f0653982]
+link reader to unfollow_journalist--><g id="link_reader_unfollow_journalist"><path d="M183.983,526.043 C192.251,516.413 202.379,507.318 214,502.061 C342.364,443.989 424.803,409.477 531,502.061 C604.72,566.33 502.098,641.985 561,720.061 C568.294,729.729 578.66,736.917 589.632,742.247 " fill="none" id="reader-unfollow_journalist" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d48e94edf7444fe271b0c4d22969e5ad]
+link reader to like_article--><g id="link_reader_like_article"><path d="M184.184,555.135 C250.01,533.082 431.488,483.997 531,573.061 C604.861,639.166 499.781,716.101 561,794.061 C569.806,805.275 582.965,812.686 596.271,817.581 " fill="none" id="reader-like_article" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9e9815c612d84ea65488246d8c826a5b]
+link reader to unlike_article--><g id="link_reader_unlike_article"><path d="M184.42,560.785 C251.635,553.49 437.85,543.74 531,644.061 C596.948,715.086 501.415,783.618 561,860.061 C569.221,870.608 581.244,877.899 593.637,882.934 " fill="none" id="reader-unlike_article" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[4fd3d1ea36d2ed2f3f16f0e14b77a875]
+link reader to report_article--><g id="link_reader_report_article"><path d="M184.181,574.686 C195.918,579.705 210.16,585.747 223,591.061 C359.351,647.49 440.06,598.846 531,715.061 C589.915,790.35 502.155,852.716 561,928.061 C569.134,938.476 580.975,945.717 593.213,950.745 " fill="none" id="reader-report_article" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[68161b2a5b89f939a8a7c81ebe47c4fc]
+link reader to view_all_articles--><g id="link_reader_view_all_articles"><path d="M161.221,602.237 C165.73,685.256 180.621,878.574 223,926.061 C235.784,940.385 254.113,948.971 272.547,954.081 " fill="none" id="reader-view_all_articles" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[0d668084ebcc7b3a8df366d40d9195d9]
+link reader to authentication--><g id="link_reader_authentication"><path d="M164.625,525.724 C171.786,483.99 188.067,416.953 223,370.061 C316.408,244.67 382.897,149.93 531,200.06 C686.266,252.61 731.811,288.52 824,424.061 C903.989,541.661 923.56,719.709 927.878,776.204 " fill="none" id="reader-authentication" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[22733b7019a3047aa086b59d81280bdb]
+link admin to authentication--><g id="link_admin_authentication"><path d="M51.0093,602.152 C90.4841,738.724 222.612,1195.769 223,1196.061 C437.703,1357.4143 664.067,1348.8235 824,1133.061 C901.599,1028.374 922.646,865.278 927.619,811.74 " fill="none" id="admin-authentication" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5347028e5aa0f2b38907cdb497e1bf90]
+link journalist to create_article--><g id="link_journalist_create_article"><path d="M72.24,1150.247 C81.6521,1155.432 92.0787,1160.786 102,1165.061 C152.984,1187.027 167.85,1189.712 223,1196.061 C317.929,1206.989 342.761,1203.83 438,1196.061 C490.996,1191.737 550.871,1181.287 592.542,1173.104 " fill="none" id="journalist-create_article" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[3b106c0dde69d042a12fddb29cc17d4f]
+link journalist to view_article--><g id="link_journalist_view_article"><path d="M72.1573,1111.678 C81.5682,1106.49 92.0147,1101.184 102,1097.061 C165.922,1070.666 243.496,1050.702 292.688,1039.441 " fill="none" id="journalist-view_article" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e5de0861570c59dc079c2c134bf5faa4]
+link journalist to edit_article--><g id="link_journalist_edit_article"><path d="M72.2658,1127.208 C122.776,1121.177 221.229,1109.421 284.053,1101.92 " fill="none" id="journalist-edit_article" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[b0de41f81350283ab23e61a2eec4c52f]
+link journalist to delete_article--><g id="link_journalist_delete_article"><path d="M72.0764,1147.203 C81.4859,1151.192 91.9521,1154.93 102,1157.061 C159.365,1169.226 226.193,1169.507 274.659,1167.305 " fill="none" id="journalist-delete_article" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[3aa4b47d110d138c094bd33911debe4e]
+link admin to journalist--><g id="link_admin_journalist"><path d="M39,602.274 C39,759.094 39,915.913 39,1072.733 " fill="none" id="admin-to-journalist" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="46.0001,1072.855,39,1092.855,32.0001,1072.855,46.0001,1072.855" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[109c7715445fc9e8d583890327c8d9ae]
+link admin to reader--><g id="link_admin_reader"><path d="M62.1009,564.061 C76.2955,564.061 95.2426,564.061 112.51,564.061 " fill="none" id="admin-to-reader" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="112.651,557.06,132.651,564.061,112.651,571.06,112.651,557.06" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[501176bd9eeddaf4a3120b2162e427ab]
+link admin to view_user--><g id="link_admin_view_user"><path d="M39.8244,525.914 C41.2185,465.703 50.885,346.875 102,263.06 C131.491,214.7 166.553,227.73 223,223.06 C359.908,211.73 439.818,146.31 531,249.06 C588.909,314.318 506.483,374.943 561,443.061 C570.301,454.682 584.266,462.222 598.154,467.111 " fill="none" id="admin-view_user" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5493a9c038f62cc4c2bdedfb3dd98b92]
+link admin to create_user--><g id="link_admin_create_user"><path d="M62.0281,578.585 C80.5507,590.488 107.945,607.378 133,620.061 C304,706.616 413.677,634.508 531,786.061 C588.714,860.613 502.514,922.113 561,996.061 C569.553,1006.875 582.152,1014.154 595.004,1019.05 " fill="none" id="admin-create_user" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[b1d175214e30e6e696cf3784ef3a81b0]
+link admin to edit_user--><g id="link_admin_edit_user"><path d="M62.2022,585.871 C80.6023,603.569 107.738,628.816 133,649.061 C171.1,679.595 182.357,685.002 223,712.061 C317.118,774.72 359.76,766.434 438,848.061 C513.911,927.257 477.93,990.409 561,1062.061 C573.102,1072.499 588.895,1079.858 603.517,1084.935 " fill="none" id="admin-edit_user" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[7f81e0e74d719ba1cbfa8ba56af983df]
+link admin to delete_user--><g id="link_admin_delete_user"><path d="M42.0556,526.058 C46.5503,463.529 60.4419,336.019 102,237.06 C135.751,156.69 136.744,116.43 214,76.06 C348.084,6 417.633,99.89 531,200.06 C594.417,256.1 629.154,356.178 640.65,394.523 " fill="none" id="admin-delete_user" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[0a4ea3bce848f46dcbe4019fd5c0893b]
+link admin to delete_report--><g id="link_admin_delete_report"><path d="M42.8541,526.06 C48.864,457.691 65.4011,318.327 102,289.06 C176.456,229.52 459.179,226.37 531,289.06 C605.344,353.955 500.429,431.154 561,509.061 C569.015,519.37 580.663,526.568 592.745,531.589 " fill="none" id="admin-delete_report" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[92d62c9bd293572aa5a3bb5c05b8ce04]
+link admin to view_all_reports--><g id="link_admin_view_all_reports"><path d="M62.0423,526.111 C91.7361,479.231 149.452,401.79 223,370.061 C310.739,332.209 342.711,362.928 438,370.061 C479.682,373.18 501.384,354.564 531,384.061 C592.817,445.63 507.183,509.389 561,578.061 C568.894,588.133 580.201,595.335 591.973,600.476 " fill="none" id="admin-view_all_reports" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5d7aff95d887e7490c3f483149a94f6c]
+link view_all_reports to authentication--><g id="link_view_all_reports_authentication"><path d="M684.503,628.376 C699.129,634.546 715.962,641.891 731,649.061 C773.171,669.167 785.781,671.19 824,698.061 C856.147,720.662 888.891,752.249 909.074,772.924 " fill="none" id="view_all_reports-to-authentication" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="912.693,776.653,909.2953,767.4088,909.2107,773.065,903.5545,772.9805,912.693,776.653" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="762" y="659.1279">«include»</text></g><!--MD5=[d4c26df52699d118cc4d067dcc36fbcd]
+link delete_report to authentication--><g id="link_delete_report_authentication"><path d="M687.293,557.061 C726.088,572.161 784.534,599.356 824,638.061 C865.988,679.239 900.876,739.71 917.865,771.932 " fill="none" id="delete_report-to-authentication" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="920.241,776.475,919.6154,766.646,917.9242,772.0442,912.526,770.353,920.241,776.475" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="762" y="588.1279">«include»</text></g><!--MD5=[9f6f605c5ab7b438dee81e897bf26dd9]
+link create_user to authentication--><g id="link_create_user_authentication"><path d="M691.826,1017.76 C730.298,1006.28 785.474,985.382 824,952.061 C869.349,912.838 903.298,849.5 919.129,816.179 " fill="none" id="create_user-to-authentication" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="921.332,811.487,913.8853,817.9326,919.2063,816.0126,921.1263,821.3337,921.332,811.487" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="762" y="948.1279">«include»</text></g><!--MD5=[246bdb70b0b16707f1982fccb73ddcef]
+link edit_user to authentication--><g id="link_edit_user_authentication"><path d="M690.082,1085.455 C729.529,1074.65 787.207,1053.505 824,1016.061 C881.86,957.176 912.263,860.365 923.643,816.687 " fill="none" id="edit_user-to-authentication" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="924.937,811.629,918.8317,819.3572,923.6981,816.4731,926.5823,821.3395,924.937,811.629" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="762" y="1012.1279">«include»</text></g><!--MD5=[1626e7d5ae505c3a3a174b9be69e7f02]
+link delete_user to authentication--><g id="link_delete_user_authentication"><path d="M693.518,420.951 C733.629,432.693 790.263,455.286 824,495.061 C895.91,579.839 919.717,717.061 926.557,771.123 " fill="none" id="delete_user-to-authentication" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="927.203,776.394,930.0778,766.9741,926.5944,771.4312,922.1373,767.9478,927.203,776.394" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="762" y="445.1279">«include»</text></g><!--MD5=[d8d9c932c8e02a411e0018c740a8258f]
+link view_user to authentication--><g id="link_view_user_authentication"><path d="M686.824,487.125 C726.669,500.115 787.185,525.356 824,567.061 C879.641,630.092 911.181,727.637 923.247,771.427 " fill="none" id="view_user-to-authentication" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="924.623,776.495,926.1255,766.7614,923.3131,771.6696,918.4049,768.8573,924.623,776.495" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="762" y="516.1279">«include»</text></g><!--MD5=[fdf804ab86b22dfccd75f7c3a7777ed4]
+link create_article to authentication--><g id="link_create_article_authentication"><path d="M698.758,1150.754 C738.197,1139.595 791.148,1118.731 824,1082.061 C895.583,1002.158 919.537,869.523 926.487,816.741 " fill="none" id="create_article-to-authentication" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="927.144,811.591,922.0371,820.0124,926.5112,816.5508,929.9727,821.0249,927.144,811.591" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="762" y="1078.1279">«include»</text></g><!--MD5=[c3eae9d3b83aed610be0a41cad98e1de]
+link edit_article to create_article--><g id="link_edit_article_create_article"><path d="M390.609,1105.529 C444.225,1117.444 531.741,1136.892 588.854,1149.584 " fill="none" id="edit_article-to-create_article" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="593.94,1150.714,586.0231,1144.8554,589.0593,1149.6284,584.2862,1152.6646,593.94,1150.714" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="469" y="1120.1279">«include»</text></g><!--MD5=[c5a6a9ca4cc50b99a2b677a68f3f4d5f]
+link delete_article to create_article--><g id="link_delete_article_create_article"><path d="M414.188,1162.061 C460.79,1162.061 521.77,1162.061 569.348,1162.061 " fill="none" id="delete_article-to-create_article" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="574.494,1162.061,565.494,1158.061,569.494,1162.061,565.494,1166.061,574.494,1162.061" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="469" y="1158.1279">«include»</text></g><!--MD5=[a507694691f3e95a2236260f3688b987]
+link follow_journalist to authentication--><g id="link_follow_journalist_authentication"><path d="M691.369,698.767 C727.39,710.966 779.346,729.152 824,747.061 C846.481,756.077 871.227,767.098 891.046,776.202 " fill="none" id="follow_journalist-to-authentication" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="895.714,778.352,889.2124,770.9541,891.1724,776.2605,885.866,778.2206,895.714,778.352" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="762" y="719.1279">«include»</text></g><!--MD5=[8ba7168a480d3f7123813a5f64911c10]
+link unfollow_journalist to authentication--><g id="link_unfollow_journalist_authentication"><path d="M720.356,766.685 C763.011,772.282 816.49,779.299 858.625,784.827 " fill="none" id="unfollow_journalist-to-authentication" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="863.706,785.494,855.3039,780.3555,858.7486,784.8425,854.2616,788.2873,863.706,785.494" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="762" y="768.1279">«include»</text></g><!--MD5=[8e24857b323837b0e464bb6074c02b8f]
+link like_article to authentication--><g id="link_like_article_authentication"><path d="M709.571,829.391 C743.586,829.719 786.292,828.607 824,823.061 C843.069,820.256 863.597,815.088 881.4,809.883 " fill="none" id="like_article-to-authentication" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="886.345,808.416,876.5792,807.1393,881.5513,809.8373,878.8533,814.8093,886.345,808.416" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="762" y="819.1279">«include»</text></g><!--MD5=[255dddc6fb7543a2892811a34f8b82c1]
+link unlike_article to authentication--><g id="link_unlike_article_authentication"><path d="M704.832,884.963 C740.026,878.381 785.472,867.994 824,853.061 C850.939,842.619 879.386,826.261 899.865,813.415 " fill="none" id="unlike_article-to-authentication" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="904.111,810.731,894.3662,812.1592,899.8847,813.4028,898.6411,818.9213,904.111,810.731" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="762" y="849.1279">«include»</text></g><!--MD5=[fc2476e7da11be22f1090ca621e66441]
+link report_article to authentication--><g id="link_report_article_authentication"><path d="M695.729,950.198 C732.78,939.793 784.02,922.342 824,897.061 C859.556,874.577 892.834,838.375 912.04,815.422 " fill="none" id="report_article-to-authentication" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="915.46,811.297,906.636,815.6716,912.2684,815.1458,912.7941,820.7782,915.46,811.297" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="762" y="893.1279">«include»</text></g><!--MD5=[6a2e88a5fa4bd3b5498e975adde852e1]
+@startuml
+left to right direction
+
+:Reader: as reader
+:Journalist: as journalist
+:Admin: as admin
+
+rectangle Nexo {
+    
+    
+    
+    
+    
+    
+    (Authentication) as authentication
+    (Registration) as registration
+    
+    (view journalist profile) as view_journalist_profile
+    
+    (follow journalist) as follow_journalist
+    (unfollow journalist) as unfollow_journalist
+    
+    
+    (like article) as like_article
+    (unlike article) as unlike_article
+    (report article) as report_article
+    
+    (view article) as view_article
+    (create article) as create_article
+    (edit article) as edit_article
+    (delete article) as delete_article
+    
+    (create user) as create_user    
+    (edit user) as edit_user
+    (delete user) as delete_user
+    (view user) as view_user
+    
+    
+    (view all articles) as view_all_articles
+    
+    
+    
+    authentication ...> registration :<<include>>
+    registration ...> authentication :<<extend>>
+    
+    
+    reader - - view_journalist_profile
+    reader - - follow_journalist
+    reader - - unfollow_journalist
+    reader - - like_article
+    reader - - unlike_article
+    reader - - report_article
+    reader - - view_all_articles
+    
+    reader - - - authentication    
+    admin - - - authentication
+    
+    journalist - - - create_article
+    journalist - - - view_article
+    journalist - - - edit_article
+    journalist - - - delete_article
+    
+    admin -|> journalist
+    admin -|> reader
+    
+    admin - - - view_user
+    admin - - - create_user
+    admin - - - edit_user
+    admin - - - delete_user
+    
+    (delete report) as delete_report
+    (view all reports) as view_all_reports
+    
+    admin - - - delete_report 
+    admin - - - view_all_reports
+    
+    view_all_reports ..> authentication :<<include>>
+    delete_report ..> authentication :<<include>>
+    
+    create_user ..> authentication :<<include>>
+    edit_user ..> authentication :<<include>>
+    delete_user ..> authentication :<<include>>
+    view_user ..> authentication :<<include>>
+    
+    create_article ..> authentication :<<include>>
+    edit_article ..> create_article :<<include>>
+    delete_article ..> create_article :<<include>>
+    
+    
+    follow_journalist ..>  authentication :<<include>>
+    unfollow_journalist ..>  authentication :<<include>>
+    like_article ..>  authentication :<<include>>
+    unlike_article ..>  authentication :<<include>>
+    report_article ..>  authentication :<<include>>
+    
+    
+}
+@enduml
+
+PlantUML version 1.2022.4beta2(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

@@ -1,0 +1,78 @@
+classDiagram
+direction LR
+
+
+Journalist "1..1" --o "0..*" Article: publishes
+
+Admin "1..1" --o "1..*" Article: manages
+Admin "1..1" --o "0..*" User: manages
+
+
+Reader "1..1" --o "0..*" Journalist: follows
+
+Journalist "1..1" --o "0..*" Reader: is followed by
+
+Article "1..1" --o "0..*" Tag: has
+
+Reader "1..1" --o "0..*" Article: likes
+
+Reader --|> User
+Journalist --|> User 
+
+
+
+
+class Article {
+    -int id
+    +string title
+    +string content
+    +getAuthor()
+}
+
+
+class User {
+    -int id
+    +string firstName
+    +string lastName
+    +string email
+    -string password
+   }
+   
+   
+class Reader {
+    +getLikedArticles()
+    +getAuthor()
+}
+
+class Tag {
+    -int id
+    +string name
+}
+
+class Journalist {
+    +getArticles()
+    +getFollowers()
+}
+
+class OuterArticle {
+    -int id
+    +string title
+    +string content
+    +string urlToImage
+    +string url
+    +string publishedAt
+    +string description
+    +string author
+    +Source source
+}
+
+class Source {
+    -int id
+    +string name
+}
+
+class Admin {
+    -int id
+    +string username
+    -string password    
+}
