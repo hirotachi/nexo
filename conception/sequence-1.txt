@@ -1,0 +1,27 @@
+sequenceDiagram
+actor User
+participant Client
+participant Server
+participant Database
+
+Note over User : enters site
+Note over User : clicks "Sign in"
+
+User ->>+ Client : Sign in
+
+Client ->> User: request credentials
+User ->> Client: enter credentials
+
+Client ->>+ Server: verify credentials
+
+alt are credentials valid
+Server ->> Client: credentials valid
+Client ->> Server: fetch all articles
+Server ->>+ Database: fetch all articles  
+Database -->>Server: all articles 
+Server ->> Client: send all articles
+Client ->> User: display all articles
+else are credentials invalid
+Server ->> Client: credentials invalid
+Client ->> Server: display error message
+end
