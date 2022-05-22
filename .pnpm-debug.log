@@ -1,0 +1,14 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 error pnpm": {
+    "code": "ENOENT",
+    "err": {
+      "name": "pnpm",
+      "message": "not found: create",
+      "code": "ENOENT",
+      "stack": "pnpm: not found: create\n    at getNotFoundError (C:\\Users\\said\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@7.0.0\\node_modules\\pnpm\\dist\\pnpx.cjs:35893:51)\n    at Function.whichSync [as sync] (C:\\Users\\said\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@7.0.0\\node_modules\\pnpm\\dist\\pnpx.cjs:35970:13)\n    at getCommandAbsolutePathSync (C:\\Users\\said\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@7.0.0\\node_modules\\pnpm\\dist\\pnpx.cjs:37535:44)\n    at default_1 (C:\\Users\\said\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@7.0.0\\node_modules\\pnpm\\dist\\pnpx.cjs:37544:32)\n    at Object.handler [as dlx] (C:\\Users\\said\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@7.0.0\\node_modules\\pnpm\\dist\\pnpx.cjs:169998:33)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async C:\\Users\\said\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@7.0.0\\node_modules\\pnpm\\dist\\pnpx.cjs:175391:21\n    at async run (C:\\Users\\said\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@7.0.0\\node_modules\\pnpm\\dist\\pnpx.cjs:175365:34)\n    at async C:\\Users\\said\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@7.0.0\\node_modules\\pnpm\\dist\\pnpx.cjs:175437:5"
+    }
+  }
+}
