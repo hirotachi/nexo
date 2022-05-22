@@ -4,14 +4,24 @@ import ArticlePreview from "@components/ArticlePreview";
 import clsx from "clsx";
 
 type SectionProps = {
-  title?: "";
+  title?: string;
   articles: TArticlePreview[];
 };
 const Section = (props: SectionProps) => {
   const { articles, title } = props;
   return (
     <div className={styles.section}>
-      {title && <div className={styles.title}>{title}</div>}
+      {title && (
+        <div className={styles.title}>
+          <div className={styles.track}>
+            {Array.from<string>({ length: 30 })
+              .fill(title)
+              .map((t, i) => (
+                <span key={i}>#{t}</span>
+              ))}
+          </div>
+        </div>
+      )}
       <div className={clsx(styles.list, styles[`list-${articles.length}`])}>
         {articles.map((item, index) => {
           return (
