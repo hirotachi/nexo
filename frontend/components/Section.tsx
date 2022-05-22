@@ -13,12 +13,14 @@ const Section = (props: SectionProps) => {
     <div className={styles.section}>
       {title && <div className={styles.title}>{title}</div>}
       <div className={clsx(styles.list, styles[`list-${articles.length}`])}>
-        {articles.map((item) => {
+        {articles.map((item, index) => {
           return (
             <ArticlePreview
               key={item.id}
               article={item}
-              secondary={articles.length > 2}
+              secondary={
+                articles.length === 3 || (articles.length === 5 && !!index)
+              }
             />
           );
         })}
