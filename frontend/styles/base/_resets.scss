@@ -14,8 +14,10 @@ html {
 
 body {
   font-size: 1.6rem;
-  //font-family: $primary-font;
-  //background-color: $primary-bg-color;
+  font-family: $primary-fonts;
+  background-color: $bg-color;
+  color: $typo-color;
+  border: 1px solid $primary-border-color;
   min-height: 100vh;
   //color: $secondary-color;
 }

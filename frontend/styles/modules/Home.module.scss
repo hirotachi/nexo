@@ -1,0 +1,17 @@
+@use "~abstracts" as *;
+
+.home {
+  .list {
+    display: grid;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+      & > div:first-of-type {
+        border-right: 1px solid $primary-border-color;
+      }
+    }
+  }
+}

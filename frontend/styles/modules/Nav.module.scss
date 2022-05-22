@@ -1,0 +1,76 @@
+@use "~abstracts" as *;
+
+.nav {
+  .intro {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1.5px solid $primary-border-color;
+    @include tablet {
+      padding: 1.5rem 3rem;
+    }
+
+    .logo {
+      width: 6rem;
+      @include tablet {
+        width: clamp(7rem, 4rem, 10rem);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .language {
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 1.4rem;
+      font-family: $secondary-fonts;
+      display: none;
+      @include tablet {
+        display: inline-block;
+      }
+    }
+
+    .auth {
+      .link {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+    }
+  }
+  .main {
+    display: none;
+    border-bottom: 1.5px solid $primary-border-color;
+    @include tablet {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(0, 1fr);
+    }
+    .link {
+      padding: 1rem;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      font-family: $secondary-fonts;
+      font-weight: 800;
+      border-right: 1.5px solid $primary-border-color;
+      transition: all 0.2s ease;
+      &:last-of-type {
+        border-right: none;
+      }
+      &:hover {
+        background-color: $accent-color;
+        color: $bg-color;
+      }
+
+      @include desktop {
+        padding: 1.5rem;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

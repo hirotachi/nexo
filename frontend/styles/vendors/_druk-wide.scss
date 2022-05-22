@@ -1,0 +1,7 @@
+@use "~abstracts" as *;
+
+@include generate-fonts(
+  "Druk Wide",
+  "/fonts/druk-wide",
+  ("bold", "heavy", "medium", "super")
+);
