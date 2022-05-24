@@ -1,7 +1,10 @@
 @use "~abstracts" as *;
 
 .layout {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 4rem;
+  min-height: inherit;
 
   .main {
   }
