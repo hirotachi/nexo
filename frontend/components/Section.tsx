@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "@modules/Section.module.scss";
-import ArticlePreview from "@components/ArticlePreview";
+import ArticlePreviewSecondary from "@components/ArticlePreviewSecondary";
 import clsx from "clsx";
 
 type SectionProps = {
@@ -25,7 +25,7 @@ const Section = (props: SectionProps) => {
       <div className={clsx(styles.list, styles[`list-${articles.length}`])}>
         {articles.map((item, index) => {
           return (
-            <ArticlePreview
+            <ArticlePreviewSecondary
               key={item.id}
               article={item}
               secondary={

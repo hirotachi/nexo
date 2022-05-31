@@ -1,6 +1,6 @@
 import { pick } from "@utils/helpers";
 
-export const articleData: TArticle = {
+export const externalArticleData: TExternalArticle = {
   title:
     "Biden under fire over $60bn Ukraine aid amid US economic woes 'Take care of us first!'",
   author: "Thibault Spirlet",
@@ -33,10 +33,10 @@ const omittedArticleFields = [
   "rights",
   "title",
   "topic",
-] as (keyof TArticle)[];
+] as (keyof TExternalArticle)[];
 
 export const articlePreview: TArticlePreview = pick(
-  articleData,
+  externalArticleData,
   omittedArticleFields
 );
 
@@ -49,4 +49,19 @@ export const userData: TUser = {
   headline: "Senior Reporter",
   name: "Anya Zoledziowski",
   socials: ["https://twitter.com/@anyazoledz"],
+};
+
+export const articleData: TArticle = {
+  author: userData,
+  content: "article content",
+  created_at: new Date().toLocaleDateString(),
+  id: 0,
+  section: { id: 0, name: "news" },
+  summary:
+    "Heard repeatedly denied she was after Depp’s money and told the court she had pledged her $7 million divorce settlement to charity.",
+  tags: [{ name: "tester" }].map((v, i) => ({ ...v, id: i + 1 })),
+  title:
+    "‘You Wanted Mr. Depp’s Money’: Johnny Depp’s Lawyers Cross-Examine Amber Heard",
+  preview:
+    "https://video-images.vice.com/articles/62851e67f9ba8f009eb009ad/lede/1652891241464-raquel-pennington-amber-heard.png?crop=1xw:1xh;center,center&resize=442:*",
 };

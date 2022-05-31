@@ -1,6 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
-import { articlePreview } from "@components/ArticlePreview";
+import { articlePreviewSecondary } from "@components/ArticlePreviewSecondary";
 import styles from "@modules/Home.module.scss";
 import Section from "@components/Section";
 
@@ -11,9 +11,15 @@ const Home: NextPage = () => {
   return (
     <div className={styles.home}>
       <div className={styles.list}>
-        <Section articles={arrayOf(2, articlePreview)} />
-        <Section title={"tech"} articles={arrayOf(5, articlePreview)} />
-        <Section title={"world news"} articles={arrayOf(2, articlePreview)} />
+        <Section articles={arrayOf(2, articlePreviewSecondary)} />
+        <Section
+          title={"tech"}
+          articles={arrayOf(5, articlePreviewSecondary)}
+        />
+        <Section
+          title={"world news"}
+          articles={arrayOf(2, articlePreviewSecondary)}
+        />
       </div>
       <button className={styles.load}>load more</button>
     </div>

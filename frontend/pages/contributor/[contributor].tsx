@@ -12,6 +12,7 @@ import {
 import faLink from "@icons/light/faLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getSiteName } from "@utils/helpers";
+import ArticlePreview from "@components/ArticlePreview";
 
 const socialIcons = {
   facebook: faFacebookF,
@@ -54,7 +55,13 @@ const Contributor = () => {
           })}
         </div>
       </div>
-      <div className={styles.list}>list of posts</div>
+      <div className={styles.list}>
+        {Array(6)
+          .fill("")
+          .map((v, i) => {
+            return <ArticlePreview key={i} />;
+          })}
+      </div>
     </div>
   );
 };

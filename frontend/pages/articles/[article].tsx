@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "@modules/Article.module.scss";
-import { articleData } from "@utils/data";
+import { externalArticleData } from "@utils/data";
 import { format } from "date-fns";
 
 const Article = () => {
-  const { excerpt, media, published_date, summary, title } = articleData;
+  const { excerpt, media, published_date, summary, title } =
+    externalArticleData;
   return (
     <div className={styles.article}>
       <div className={styles.poster}>

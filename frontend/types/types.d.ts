@@ -1,13 +1,4 @@
-// type TArticlePreview = {
-//   title: string;
-//   image: string;
-//   author: string;
-//   source: string;
-//   category: string;
-//   id: number;
-// };
-
-type TArticle = {
+type TExternalArticle = {
   title: string;
   author: string;
   published_date: string;
@@ -31,9 +22,24 @@ type TArticle = {
 };
 
 type TArticlePreview = Pick<
-  TArticle,
+  TExternalArticle,
   "title" | "author" | "media" | "rights" | "topic" | "id"
 >;
+
+type TArticle = {
+  id: number;
+  title: string;
+  created_at: string;
+  summary: string;
+  section: {
+    id: number;
+    name: string;
+  };
+  tags: { id: number; name: string }[];
+  content: string;
+  preview: string;
+  author: TUser;
+};
 
 type TUser = {
   avatar: string;
