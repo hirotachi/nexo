@@ -18,3 +18,9 @@ export function omit<T extends object, K extends keyof T, U extends Omit<T, K>>(
     return acc;
   }, {} as U);
 }
+
+export function getSiteName(url: string) {
+  const regex = /^(?:https?:\/\/)?(?:www\.)?([^\/]+)\./;
+  const match = url.match(regex);
+  return match ? match[1] : "";
+}

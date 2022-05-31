@@ -39,3 +39,14 @@ export const articlePreview: TArticlePreview = pick(
   articleData,
   omittedArticleFields
 );
+
+export const userData: TUser = {
+  avatar:
+    "https://video-images.vice.com/test-uploads/contributors/58b97c7396dd3839271a3a39/lede/1583531539948-_0017133.jpeg?crop=0.9349xw:1xh;0.0244xw,0xh",
+  id: 1,
+  description: `Anya Zoledziowski is an award-winning staff reporter at VICE World News. Her reporting focuses on a wide-range of social justice issues, including Indigenous affairs, race, politics, sex worker rights, and the disproportionate harm experienced by racialized communities as the climate crisis worsens. She graduated top of her class from the University of British Columbia Master of Journalism program in 2018, and has since won multiple awards for her investigative reporting delving into hate crimes targeting Indigenous women at the hands of transient workers who move into “man camps,” temporary housing units near resource extraction sites. She also won the CAJ Reconciliation Award in 2021 for her Indigenous affairs reporting. Prior to working at VICE, she was with CBC, now defunct StarMetro Calgary, and freelanced all over. `,
+  email: "anya.zoledziowski@vice.com",
+  headline: "Senior Reporter",
+  name: "Anya Zoledziowski",
+  socials: ["https://twitter.com/@anyazoledz"],
+};

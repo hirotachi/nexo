@@ -34,3 +34,13 @@ type TArticlePreview = Pick<
   TArticle,
   "title" | "author" | "media" | "rights" | "topic" | "id"
 >;
+
+type TUser = {
+  avatar: string;
+  id: number;
+  name: string;
+  headline: string;
+  email: string;
+  description: string;
+  socials: string[];
+};

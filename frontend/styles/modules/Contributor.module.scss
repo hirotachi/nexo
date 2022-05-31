@@ -1,0 +1,90 @@
+@use "~abstracts" as *;
+
+.contributor {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  .intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 0;
+    gap: 1rem;
+    width: 90%;
+    margin: 0 auto;
+    @include tablet {
+      padding: 4rem 0;
+      width: 80%;
+    }
+    @include desktop {
+      padding: 5rem 0;
+      width: 60%;
+    }
+
+    .avatar {
+      border-radius: 50%;
+      @include size(8rem);
+      @include desktop {
+        @include size(10rem);
+      }
+
+      img {
+        border-radius: inherit;
+        @include size(100%);
+        object-fit: cover;
+      }
+    }
+
+    .name {
+      font-size: 3rem;
+      font-weight: 800;
+      font-family: $secondary-fonts;
+      @include tablet {
+        font-size: 3.5rem;
+      }
+      @include desktop {
+        font-size: 4rem;
+      }
+    }
+
+    .headline {
+      font-weight: 800;
+      font-family: $secondary-fonts;
+    }
+
+    .email {
+      text-decoration: underline;
+      font-weight: bold;
+      font-size: 1.4rem;
+      transition: all 0.2s ease;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .description {
+      margin: 2rem 0;
+      text-align: center;
+      font-size: 1.4rem;
+      line-height: 2rem;
+      @include tablet {
+        text-align: left;
+      }
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 2rem;
+
+      .social {
+        cursor: pointer;
+        transition: all 0.2s ease;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
