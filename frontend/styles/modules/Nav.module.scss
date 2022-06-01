@@ -1,9 +1,14 @@
 @use "~abstracts" as *;
 
 .nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: $bg-color;
   .intro {
-    display: flex;
     position: relative;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 2rem;
@@ -42,6 +47,7 @@
       }
     }
   }
+
   .main {
     display: none;
     border-bottom: 1.5px solid $primary-border-color;
@@ -50,6 +56,7 @@
       grid-auto-flow: column;
       grid-auto-columns: minmax(0, 1fr);
     }
+
     .link {
       padding: 1rem;
       text-align: center;
@@ -59,9 +66,11 @@
       font-weight: 800;
       border-right: 1.5px solid $primary-border-color;
       transition: all 0.2s ease;
+
       &:last-of-type {
         border-right: none;
       }
+
       &:hover {
         background-color: $accent-color;
         color: $bg-color;

@@ -1,0 +1,75 @@
+@use "~abstracts" as *;
+
+.nav {
+  @include tablet {
+    display: none;
+  }
+  .btn {
+    font-size: 2rem;
+  }
+  .menu {
+    position: absolute;
+    top: 100%;
+    background-color: $bg-color;
+    z-index: 2;
+    width: 100%;
+    padding: 2rem;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 3rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-family: $secondary-fonts;
+
+      .link {
+        transition: all 0.2s ease;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    .search {
+      background-color: rgba(white, 0.5);
+      border-radius: 0.2rem;
+      display: flex;
+      align-items: center;
+      input {
+        background-color: transparent;
+        border: none;
+        padding: 1.2rem 1rem;
+        color: white;
+        flex: 1;
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .icon {
+        padding: 0 1rem;
+        font-size: 1.4rem;
+      }
+    }
+
+    .socials {
+      display: flex;
+      gap: 1rem;
+      font-size: 2rem;
+      justify-content: center;
+      .social {
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}

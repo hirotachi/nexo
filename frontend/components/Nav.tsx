@@ -2,20 +2,14 @@ import React from "react";
 import styles from "@modules/Nav.module.scss";
 import Link from "next/link";
 import Logo from "@assets/logo-h.svg";
+import { routes } from "@utils/constants";
+import MobileNav from "@components/MobileNav";
 
 const Nav = () => {
-  const routes = [
-    "home",
-    "news",
-    "food",
-    "tech",
-    "world news",
-    "sports",
-    "blog",
-  ];
   return (
     <div className={styles.nav}>
       <div className={styles.intro}>
+        <MobileNav />
         <div className={styles.language}>+ English</div>
         <Link href={"/"}>
           <a className={styles.logo}>

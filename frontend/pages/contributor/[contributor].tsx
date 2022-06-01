@@ -1,28 +1,10 @@
 import React from "react";
 import styles from "@modules/Contributor.module.scss";
 import { userData } from "@utils/data";
-import {
-  faBitbucket,
-  faFacebookF,
-  faGithub,
-  faInstagram,
-  faLinkedinIn,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import faLink from "@icons/light/faLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getSiteName } from "@utils/helpers";
 import ArticlePreview from "@components/ArticlePreview";
-
-const socialIcons = {
-  facebook: faFacebookF,
-  twitter: faTwitter,
-  linkedin: faLinkedinIn,
-  instagram: faInstagram,
-  github: faGithub,
-  bitbucket: faBitbucket,
-  other: faLink,
-};
+import { socialIcons } from "@utils/constants";
 
 const Contributor = () => {
   const { description, email, headline, id, name, socials, avatar } = userData;
