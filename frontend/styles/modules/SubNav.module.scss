@@ -1,0 +1,16 @@
+@use "~abstracts" as *;
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $secondary-border-color;
+  .auth {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    display: none;
+    gap: 2rem;
+    @include tablet {
+      display: flex;
+    }
+  }
+}

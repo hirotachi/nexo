@@ -3,6 +3,10 @@ $typo-color: #f8f8f8;
 $accent-color: #b9ef27;
 
 $primary-border-color: $typo-color;
+$secondary-border-color: rgba($typo-color, 0.2);
+$primary-fonts: "Source Code Pro", monospace;
+$secondary-fonts: "VICEGrotesk", sans-serif;
 
-$primary-fonts: "Geometria", sans-serif;
-$secondary-fonts: "Druk Wide", sans-serif;
+$mobile-spacing: 2rem;
+$tablet-spacing: 4rem;
+$desktop-spacing: 4rem;

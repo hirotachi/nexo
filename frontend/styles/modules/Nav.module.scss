@@ -1,84 +1,114 @@
 @use "~abstracts" as *;
 
+$border: 1.5px solid $primary-border-color;
 .nav {
   position: sticky;
   top: 0;
   left: 0;
   z-index: 10;
   background-color: $bg-color;
-  .intro {
-    position: relative;
+  border-bottom: 1.5px solid $secondary-border-color;
+
+  .sub {
     display: flex;
     justify-content: space-between;
+    @include normalizePadding(1rem);
     align-items: center;
-    padding: 1.5rem 2rem;
-    border-bottom: 1.5px solid $primary-border-color;
-    @include tablet {
-      padding: 1.5rem 3rem;
-    }
-
-    .logo {
-      width: 6rem;
-      @include tablet {
-        width: clamp(7rem, 4rem, 10rem);
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
-    }
-
-    .language {
-      text-transform: uppercase;
-      font-weight: 800;
-      font-size: 1.4rem;
-      font-family: $secondary-fonts;
-      display: none;
-      @include tablet {
-        display: inline-block;
-      }
-    }
+    border-bottom: 1px solid $secondary-border-color;
+    font-size: 1.2rem;
+    text-transform: uppercase;
 
     .auth {
-      .link {
-        font-size: 1.6rem;
-        text-transform: uppercase;
-        font-weight: 800;
+      display: none;
+      @include tablet {
+        display: flex;
       }
+
+      gap: 2rem;
+    }
+
+    .lang {
+      margin-left: auto;
     }
   }
 
   .main {
-    display: none;
-    border-bottom: 1.5px solid $primary-border-color;
+    display: flex;
+    position: relative;
+    min-height: 5rem;
+    align-items: center;
+    @include normalizePadding(1rem, 1.5rem);
     @include tablet {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(0, 1fr);
+      gap: 2rem;
     }
 
-    .link {
-      padding: 1rem;
-      text-align: center;
-      text-transform: uppercase;
-      font-size: 1.1rem;
-      font-family: $secondary-fonts;
-      font-weight: 800;
-      border-right: 1.5px solid $primary-border-color;
-      transition: all 0.2s ease;
+    .logo {
+      width: 6rem;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      @include tablet {
+        position: static;
+        transform: none;
+      }
+    }
 
-      &:last-of-type {
-        border-right: none;
+    .links {
+      display: none;
+      gap: 1rem;
+      @include tablet {
+        display: flex;
       }
 
-      &:hover {
-        background-color: $accent-color;
-        color: $bg-color;
+      .link {
+        padding: 1rem;
+        text-align: center;
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        font-family: $secondary-fonts;
+        font-weight: 800;
+        transition: all 0.2s ease;
+
+        &:last-of-type {
+          border-right: none;
+        }
+
+        &:hover {
+          background-color: $accent-color;
+          color: $bg-color;
+        }
+
+        @include desktop {
+          padding: 1.5rem;
+          font-size: 1.4rem;
+        }
+      }
+    }
+    .socials {
+      margin-left: auto;
+      display: none;
+      font-size: 2rem;
+      @include tablet {
+        display: flex;
+        gap: 1.5rem;
       }
 
-      @include desktop {
-        padding: 1.5rem;
-        font-size: 1.4rem;
+      .social {
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          opacity: 0.2;
+        }
+      }
+    }
+    .login {
+      font-size: 1.6rem;
+      margin-left: auto;
+      @include tablet {
+        display: none;
       }
     }
   }

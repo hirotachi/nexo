@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import styles from "@modules/MobileNav.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import faBars from "@icons/solid/faBars";
+import faBars from "@icons/regular/faBars";
 import faTimes from "@icons/light/faTimes";
 import Link from "next/link";
 import faSearch from "@icons/regular/faSearch";
 import { routes, socialIcons, socials } from "@utils/constants";
 import { getSiteName } from "@utils/helpers";
+import useClickOutside from "@hooks/useClickOutside";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   let toggleMenu = () => setIsOpen((v) => !v);
+  const menuRef = useClickOutside(() => isOpen && setIsOpen(false));
   return (
-    <div className={styles.nav}>
+    <div className={styles.nav} ref={menuRef}>
       <span className={styles.btn} onClick={toggleMenu}>
         <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
       </span>

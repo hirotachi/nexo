@@ -89,19 +89,13 @@
 }
 
 // padding
-@mixin normalizePadding(
-  $mobile-padding: 0,
-  $tablet-padding: null,
-  $desktop-padding: null
-) {
-  padding: $mobile-padding $mobile-spacing;
+@mixin normalizePadding {
+  padding: 0 $mobile-spacing;
   @include tablet {
-    // use mobile padding if tablet padding is not set
-    padding: $tablet-padding or $mobile-padding $tablet-spacing;
+    padding: 0 $tablet-spacing;
   }
   @include desktop {
-    padding: $desktop-padding or $tablet-padding or $mobile-padding
-      $desktop-spacing;
+    padding: 0 $desktop-spacing;
   }
 }
 

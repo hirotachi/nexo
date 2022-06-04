@@ -49,4 +49,28 @@ type TUser = {
   email: string;
   description: string;
   socials: string[];
+  role: "user" | "contributor";
+};
+
+type TUserPreview = Pick<TUser, "id" | "name" | "avatar">;
+
+type TRegisterInput = {
+  email: string;
+  password: string;
+  role?: TUser["role"];
+  name: string;
+};
+
+type TLoginInput = {
+  email: string;
+  password: string;
+};
+
+type TAuthResponse = {
+  message: string;
+  access_token: string;
+  token_type: "Bearer ";
+  user?: TUserPreview;
+  role?: TUser["role"];
+  errors: { [P in TRegisterInput]: string[] };
 };
