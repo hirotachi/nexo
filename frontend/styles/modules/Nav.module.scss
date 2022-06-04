@@ -94,6 +94,9 @@ $border: 1.5px solid $primary-border-color;
         display: flex;
         gap: 1.5rem;
       }
+      @include desktop {
+        gap: 2rem;
+      }
 
       .social {
         cursor: pointer;

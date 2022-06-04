@@ -3,12 +3,27 @@ import styles from "@modules/ArticlePreview.module.scss";
 import Link from "next/link";
 import { articleData } from "@utils/data";
 import { format } from "date-fns";
+import clsx from "clsx";
 
-const ArticlePreview = () => {
+type ArticlePreviewProps = {
+  showSummary?: boolean;
+  isHome?: boolean;
+  isHomeSecondary?: boolean;
+  theme?: "light" | "dark";
+};
+const ArticlePreview = (props: ArticlePreviewProps) => {
+  const { showSummary, isHome, isHomeSecondary, theme = "light" } = props;
   const { author, created_at, id, section, preview, summary, title } =
     articleData;
   return (
-    <div className={styles.preview}>
+    <div
+      className={clsx(
+        styles.preview,
+        isHome && styles.home,
+        isHomeSecondary && styles.homeSecondary,
+        theme && styles[theme]
+      )}
+    >
       <Link href={`/articles/${id}`}>
         <a className={styles.img}>
           <img src={preview} alt={title} />
@@ -21,7 +36,7 @@ const ArticlePreview = () => {
         <Link href={`/articles/${id}`}>
           <a className={styles.title}>{title}</a>
         </Link>
-        <p className={styles.summary}>{summary}</p>
+        {showSummary && <p className={styles.summary}>{summary}</p>}
         <p className={styles.author}>{author.name}</p>
         <p className={styles.date}>{format(new Date(created_at), "M.d.uu")}</p>
       </div>

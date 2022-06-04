@@ -2,6 +2,26 @@
 
 .home {
   margin-bottom: 8rem;
+  .intro {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+    }
+    .more {
+      display: flex;
+      flex-direction: column;
+      background-color: $tertiary-border-color;
+      gap: 1px;
+      border-left: 1px solid $tertiary-border-color;
+      @include desktop {
+        flex-basis: 80%;
+      }
+      & > * {
+        flex: 1;
+      }
+    }
+  }
   .load {
     padding: 1rem;
     text-transform: uppercase;

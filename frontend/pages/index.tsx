@@ -1,8 +1,8 @@
 import React from "react";
 import { NextPage } from "next";
-import { articlePreviewSecondary } from "@components/ArticlePreviewSecondary";
 import styles from "@modules/Home.module.scss";
-import Section from "@components/Section";
+import ArticleMainPreview from "@components/ArticleMainPreview";
+import ArticlePreview from "@components/ArticlePreview";
 
 const arrayOf = <T,>(length: number, data: T) => {
   return Array.from({ length }, (_, i) => ({ ...data, id: i }));
@@ -10,16 +10,12 @@ const arrayOf = <T,>(length: number, data: T) => {
 const Home: NextPage = () => {
   return (
     <div className={styles.home}>
-      <div className={styles.list}>
-        <Section articles={arrayOf(2, articlePreviewSecondary)} />
-        <Section
-          title={"tech"}
-          articles={arrayOf(5, articlePreviewSecondary)}
-        />
-        <Section
-          title={"world news"}
-          articles={arrayOf(2, articlePreviewSecondary)}
-        />
+      <div className={styles.intro}>
+        <ArticleMainPreview />
+        <div className={styles.more}>
+          <ArticlePreview isHome />
+          <ArticlePreview isHome isHomeSecondary />
+        </div>
       </div>
       <button className={styles.load}>load more</button>
     </div>

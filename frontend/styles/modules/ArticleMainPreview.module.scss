@@ -1,0 +1,101 @@
+@use "~abstracts" as *;
+
+.preview {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  .img {
+    height: 25rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
+
+    @include tablet {
+      height: 30rem;
+    }
+    @include desktop {
+      height: 45rem;
+    }
+
+    img {
+      @include size(100%);
+      object-fit: cover;
+    }
+  }
+  .content {
+    background-color: white;
+    flex: 1;
+    display: flex;
+    .main {
+      display: flex;
+      gap: 1.4rem;
+      flex-direction: column;
+      background-color: $bg-color;
+      @include normalizePadding(2rem);
+      position: relative;
+      margin-left: 4rem;
+      bottom: 3.5rem;
+      @include tablet {
+        margin-left: 0;
+        margin-right: 4rem;
+      }
+
+      &:after {
+        position: absolute;
+        content: "";
+        display: inline-block;
+        top: 100%;
+        left: 0;
+        background-color: inherit;
+        height: 100%;
+        width: 100%;
+      }
+
+      .section {
+        text-transform: capitalize;
+        text-decoration: underline;
+        transition: all 0.2s ease;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+
+      .title {
+        font-size: 2.5rem;
+        line-height: 3.5rem;
+        font-weight: 800;
+        font-family: $secondary-fonts;
+        transition: all 0.2s ease;
+
+        &:hover {
+          opacity: 0.5;
+        }
+        @include desktop {
+          font-size: 3rem;
+          line-height: 4rem;
+        }
+      }
+
+      .author {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+      }
+    }
+
+    .summary {
+      display: none;
+      flex-basis: 120%;
+      padding: 3rem 2rem;
+      line-height: 2.2rem;
+      font-weight: 500;
+      font-family: $secondary-fonts;
+      @include desktop {
+        display: inline-block;
+        color: $bg-color;
+      }
+    }
+  }
+}
