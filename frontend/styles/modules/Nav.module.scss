@@ -37,9 +37,12 @@ $border: 1.5px solid $primary-border-color;
     position: relative;
     min-height: 5rem;
     align-items: center;
-    @include normalizePadding(1rem, 1.5rem);
+    @include normalizePadding(1rem, 1.5rem, 2.5rem);
     @include tablet {
       gap: 2rem;
+    }
+    @include desktop {
+      gap: 3rem;
     }
 
     .logo {
@@ -60,12 +63,15 @@ $border: 1.5px solid $primary-border-color;
       @include tablet {
         display: flex;
       }
+      @include desktop {
+        gap: 2rem;
+        margin-left: 1rem;
+      }
 
       .link {
-        padding: 1rem;
         text-align: center;
         white-space: nowrap;
-        text-transform: uppercase;
+        text-transform: capitalize;
         font-size: 1.1rem;
         font-family: $secondary-fonts;
         font-weight: 800;
@@ -76,13 +82,14 @@ $border: 1.5px solid $primary-border-color;
         }
 
         &:hover {
-          background-color: $accent-color;
-          color: $bg-color;
+          opacity: 0.5;
         }
 
-        @include desktop {
-          padding: 1.5rem;
+        @include tablet {
           font-size: 1.4rem;
+        }
+        @include desktop {
+          font-size: 1.6rem;
         }
       }
     }
