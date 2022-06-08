@@ -2,22 +2,19 @@ classDiagram
 direction LR
 
 
-Journalist "1..1" --o "0..*" Article: publishes
+Contributor "1..1" --o "0..*" Article: publishes
 
 Admin "1..1" --o "1..*" Article: manages
 Admin "1..1" --o "0..*" User: manages
 
 
-Reader "1..1" --o "0..*" Journalist: follows
 
-Journalist "1..1" --o "0..*" Reader: is followed by
 
 Article "1..1" --o "0..*" Tag: has
 
-Reader "1..1" --o "0..*" Article: likes
 
 Reader --|> User
-Journalist --|> User 
+Contributor --|> User 
 
 
 
@@ -32,6 +29,7 @@ class Article {
 
 class User {
     -int id
+    +string avatar
     +string firstName
     +string lastName
     +string email
@@ -40,7 +38,7 @@ class User {
    
    
 class Reader {
-    +getLikedArticles()
+    +string perferredLanguage
     +getAuthor()
 }
 
@@ -49,9 +47,11 @@ class Tag {
     +string name
 }
 
-class Journalist {
+class Contributor {
+    +List~string~ socials
+    +string headline
+    +string description
     +getArticles()
-    +getFollowers()
 }
 
 class OuterArticle {

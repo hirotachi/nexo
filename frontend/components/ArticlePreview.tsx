@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "@modules/ArticlePreview.module.scss";
 import Link from "next/link";
-import { articleData } from "@utils/data";
 import { format } from "date-fns";
 import clsx from "clsx";
 
@@ -10,11 +9,11 @@ type ArticlePreviewProps = {
   isHome?: boolean;
   isHomeSecondary?: boolean;
   theme?: "light" | "dark";
+  data: TArticle;
 };
 const ArticlePreview = (props: ArticlePreviewProps) => {
-  const { showSummary, isHome, isHomeSecondary, theme = "light" } = props;
-  const { author, created_at, id, section, preview, summary, title } =
-    articleData;
+  const { showSummary, isHome, isHomeSecondary, theme = "light", data } = props;
+  const { author, created_at, id, section, preview, summary, title } = data;
   return (
     <div
       className={clsx(

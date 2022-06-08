@@ -1,7 +1,8 @@
+
 sequenceDiagram
-actor Journalist
+actor Contributor
 participant Client
-participant Journalist
+participant Contributor
 participant Server
 participant Database
 
@@ -9,33 +10,33 @@ participant Database
  
 
 %% Article creation
-Note over Journalist: click on "New article"
+Note over Contributor: click on "New article"
 
-Journalist ->>+ Client: create article
-Client ->> Journalist: request article details
-Note over Journalist: enter article details
+Contributor ->>+ Client: create article
+Client ->> Contributor: request article details
+Note over Contributor: enter article details
 Client ->> Server: send article details
 Server ->>+ Database: store article details
 Server ->>+ Client: article stored
-Client ->> Journalist: article stored
+Client ->> Contributor: article stored
 
 %% Article editing
-Note over Journalist: click on "Edit article"
-Journalist ->>+ Client: edit article
-Client ->> Journalist: request updates to article
-Note over Journalist: enter updates to article
+Note over Contributor: click on "Edit article"
+Contributor ->>+ Client: edit article
+Client ->> Contributor: request updates to article
+Note over Contributor: enter updates to article
 Client ->> Server: send updates to article
 Server ->>+ Database: store updates to article
 Server ->>+ Client: article updated
-Client ->> Journalist: article updated
+Client ->> Contributor: article updated
 
 
 %% Article deletion
-Note over Journalist: click on "Delete article"
-Journalist ->>+ Client: delete article
-Client ->> Journalist: request article deletion
-Note over Journalist: confirm article deletion
+Note over Contributor: click on "Delete article"
+Contributor ->>+ Client: delete article
+Client ->> Contributor: request article deletion
+Note over Contributor: confirm article deletion
 Client ->> Server: send article deletion
 Server ->>+ Database: delete article
 Server ->>+ Client: article deleted
-Client ->> Journalist: article deleted
+Client ->> Contributor: article deleted

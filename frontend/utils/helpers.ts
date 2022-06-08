@@ -24,3 +24,7 @@ export function getSiteName(url: string) {
   const match = url.match(regex);
   return match ? match[1] : "";
 }
+
+export function arrayOf<T>(length: number, data: T) {
+  return Array.from({ length }, (_, i) => ({ ...data, id: i }));
+}

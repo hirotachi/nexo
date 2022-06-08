@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "@modules/Contributor.module.scss";
-import { userData } from "@utils/data";
+import { articleData, userData } from "@utils/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getSiteName } from "@utils/helpers";
 import ArticlePreview from "@components/ArticlePreview";
@@ -41,7 +41,7 @@ const Contributor = () => {
         {Array(6)
           .fill("")
           .map((v, i) => {
-            return <ArticlePreview key={i} />;
+            return <ArticlePreview key={i} data={articleData} />;
           })}
       </div>
     </div>

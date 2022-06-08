@@ -2,9 +2,12 @@
 
 .home {
   margin-bottom: 8rem;
+  display: flex;
+  flex-direction: column;
   .intro {
     display: flex;
     flex-direction: column;
+    border-bottom: 1px solid $tertiary-border-color;
     @include tablet {
       flex-direction: row;
     }
@@ -22,24 +25,33 @@
       }
     }
   }
-  .load {
-    padding: 1rem;
-    text-transform: uppercase;
-    font-weight: 800;
-    font-family: $secondary-fonts;
-    background-color: $bg-color;
-    border: 1px solid $primary-border-color;
-    color: $typo-color;
-    width: 100%;
-    cursor: pointer;
-    font-size: 1.8rem;
-    transition: all 0.2s ease;
-    @include desktop {
-      padding: 1.8rem;
+  .list {
+    display: grid;
+    gap: 1px;
+    background-color: $tertiary-border-color;
+    border-bottom: 1px solid $tertiary-border-color;
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
     }
+  }
+  .load {
+    text-align: center;
+    background-color: transparent;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    margin: 2rem 0;
+    font-size: 2.5rem;
+    font-family: $secondary-fonts;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
     &:hover {
-      background-color: $typo-color;
-      color: $bg-color;
+      opacity: 0.5;
+    }
+    @include desktop {
+      font-size: 3.5rem;
+      margin: 3rem;
     }
   }
 }

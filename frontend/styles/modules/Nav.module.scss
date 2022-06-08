@@ -8,6 +8,7 @@ $border: 1.5px solid $primary-border-color;
   z-index: 10;
   background-color: $bg-color;
   border-bottom: 1.5px solid $secondary-border-color;
+  color: $typo-color;
 
   .sub {
     display: flex;
@@ -15,7 +16,7 @@ $border: 1.5px solid $primary-border-color;
     @include normalizePadding(1rem);
     align-items: center;
     border-bottom: 1px solid $secondary-border-color;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
 
     .auth {
