@@ -10,9 +10,17 @@ type ArticlePreviewProps = {
   isHomeSecondary?: boolean;
   theme?: "light" | "dark";
   data: TArticle;
+  align?: "horizontal" | "vertical";
 };
 const ArticlePreview = (props: ArticlePreviewProps) => {
-  const { showSummary, isHome, isHomeSecondary, theme = "light", data } = props;
+  const {
+    showSummary,
+    isHome,
+    isHomeSecondary,
+    theme = "light",
+    data,
+    align = "vertical",
+  } = props;
   const { author, created_at, id, section, preview, summary, title } = data;
   return (
     <div
@@ -20,7 +28,8 @@ const ArticlePreview = (props: ArticlePreviewProps) => {
         styles.preview,
         isHome && styles.home,
         isHomeSecondary && styles.homeSecondary,
-        theme && styles[theme]
+        theme && styles[theme],
+        align && styles[align]
       )}
     >
       <Link href={`/articles/${id}`}>

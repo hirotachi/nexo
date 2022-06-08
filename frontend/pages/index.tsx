@@ -29,6 +29,25 @@ const Home: NextPage = () => {
           return <ArticlePreview key={d.id} data={d} isHome />;
         })}
       </div>
+      <div className={styles.other}>
+        <h2 className={styles.header}>
+          <span>the</span> <span>latest</span>
+        </h2>
+        <div className={styles.container}>
+          <div className={styles.list}>
+            {arrayOf(6, articleData).map((d) => {
+              return (
+                <ArticlePreview
+                  key={d.id}
+                  align={"horizontal"}
+                  data={d}
+                  isHome
+                />
+              );
+            })}
+          </div>
+        </div>
+      </div>
       <button className={styles.load}>load more</button>
     </div>
   );

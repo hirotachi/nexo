@@ -3,8 +3,6 @@
 .preview {
   display: flex;
   flex-direction: row-reverse;
-  background-color: $bg-color;
-  color: white;
   @include tablet {
     flex-direction: column;
   }
@@ -116,5 +114,15 @@
         display: none;
       }
     }
+  }
+}
+
+.horizontal {
+  flex-direction: row-reverse;
+  @include tablet {
+    flex-direction: row;
+  }
+  .img {
+    height: 100%;
   }
 }
