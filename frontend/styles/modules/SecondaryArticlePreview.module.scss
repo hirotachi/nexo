@@ -1,0 +1,78 @@
+@use "~abstracts" as *;
+
+.preview {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: $bg-color;
+  color: $typo-color;
+  @include normalizePadding(3rem, 0);
+  @include tablet {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 60% 1fr;
+  }
+  @include desktop {
+    grid-template-columns: 65% 1fr;
+  }
+
+  .img {
+    @include opacityHover;
+    height: 18rem;
+    top: 5rem;
+    position: relative;
+    @include tablet {
+      position: static;
+      height: 100%;
+    }
+
+    img {
+      @include size(100%);
+      object-fit: cover;
+    }
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    @include tablet {
+      padding: 2rem;
+    }
+    @include desktop {
+      gap: 2rem;
+    }
+
+    .topic {
+      font-size: 1.4rem;
+      text-transform: capitalize;
+      @include opacityHover;
+      width: fit-content;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: 600;
+      font-family: $secondary-fonts;
+      @include opacityHover;
+      @include tablet {
+        font-size: 2.5rem;
+      }
+      @include desktop {
+        font-size: 3rem;
+      }
+    }
+
+    .summary {
+      font-size: 1.2rem;
+    }
+
+    .author {
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+
+    .date {
+      font-size: 1.1rem;
+    }
+  }
+}

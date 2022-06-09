@@ -121,8 +121,14 @@
   flex-direction: row-reverse;
   @include tablet {
     flex-direction: row;
+    padding: 3rem 0;
   }
   .img {
-    height: 100%;
+    @include tablet {
+      height: 18rem;
+    }
+    @include desktop {
+      height: 25rem;
+    }
   }
 }

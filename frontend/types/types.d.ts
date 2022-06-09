@@ -23,7 +23,7 @@ type TExternalArticle = {
 
 type TArticlePreview = Pick<
   TExternalArticle,
-  "title" | "author" | "media" | "rights" | "topic" | "id"
+  "title" | "author" | "media" | "rights" | "topic" | "id" | "summary"
 >;
 
 type TArticle = {

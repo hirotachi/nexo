@@ -5,6 +5,7 @@ import ArticleMainPreview from "@components/ArticleMainPreview";
 import ArticlePreview from "@components/ArticlePreview";
 import { arrayOf } from "@utils/helpers";
 import { articleData } from "@utils/data";
+import SecondaryArticlePreview from "@components/SecondaryArticlePreview";
 
 const Home: NextPage = () => {
   return (
@@ -48,6 +49,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+      <SecondaryArticlePreview data={articleData} />
       <button className={styles.load}>load more</button>
     </div>
   );
