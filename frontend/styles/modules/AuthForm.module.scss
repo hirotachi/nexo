@@ -1,0 +1,101 @@
+@use "~abstracts" as *;
+
+.auth {
+  @include normalizePadding(3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: $secondary-fonts;
+  margin: 0 auto;
+  @include tablet {
+    width: 60%;
+    margin: 2rem auto;
+  }
+  @include desktop {
+    width: 40%;
+    margin: 4rem auto;
+  }
+  .title {
+    font-size: 3.5rem;
+    font-weight: 600;
+  }
+  .description {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
+  .other {
+    display: flex;
+    gap: 0.5rem;
+    &Intro {
+    }
+    &Link {
+      text-decoration: underline;
+    }
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+    font-family: $primary-fonts;
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .intro {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1rem;
+        .label {
+          font-weight: 600;
+          text-transform: uppercase;
+          display: flex;
+          gap: 0.3rem;
+          .required {
+            color: $error-color;
+          }
+        }
+        .sub {
+          color: $bg-color;
+          text-decoration: underline;
+          font-family: $secondary-fonts;
+        }
+      }
+      .input {
+        padding: 1rem;
+        border: 1px solid $tertiary-border-color;
+        transition: all 0.2s ease;
+        &:focus {
+          outline: none;
+          border-color: $bg-color;
+        }
+      }
+    }
+    .error {
+      color: $error-color;
+      .input {
+        border-color: rgba($error-color, 0.5);
+        &:focus {
+          border-color: $error-color;
+        }
+      }
+      &Message {
+        font-size: 1.1rem;
+        margin-top: 0.5rem;
+        &:first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+    .submit {
+      padding: 1.5rem 0;
+      margin-top: 2rem;
+      border: none;
+      background-color: $bg-color;
+      color: $typo-color;
+      font-weight: 600;
+      @include opacityHover(0.8);
+      cursor: pointer;
+    }
+  }
+}

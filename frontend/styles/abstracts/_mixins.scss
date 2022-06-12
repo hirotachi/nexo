@@ -110,9 +110,9 @@
   padding-bottom: $size;
 }
 
-@mixin opacityHover {
+@mixin opacityHover($opacity: 0.6) {
   transition: all 0.2s ease;
   &:hover {
-    opacity: 0.5;
+    opacity: $opacity;
   }
 }
