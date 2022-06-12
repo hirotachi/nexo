@@ -1,0 +1,65 @@
+@use "~abstracts" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  @include normalizePadding(3rem);
+  @include tablet {
+    width: 60%;
+    margin: 2rem auto;
+  }
+
+  .heading {
+    margin-bottom: 2rem;
+    @include tablet {
+      text-align: center;
+    }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .label {
+      font-size: 1.4rem;
+      width: fit-content;
+      text-transform: capitalize;
+      font-weight: 600;
+    }
+    .title,
+    .summary {
+      font-family: $secondary-fonts;
+      background-color: rgba($tertiary-border-color, 0.4);
+      font-size: 1.6rem;
+      & > * {
+        border: 1px solid rgba($bg-color, 0.4);
+        transition: all 0.2s ease;
+        padding: 1rem;
+        &:focus {
+          outline: none;
+          border-color: $bg-color;
+        }
+      }
+    }
+
+    .summary {
+      font-size: 1.4rem;
+      & > * {
+        min-height: 5rem;
+      }
+    }
+  }
+  .required {
+    .label {
+      position: relative;
+      &:after {
+        position: absolute;
+        content: "*";
+        right: -1rem;
+        top: -0.2rem;
+        color: $error-color;
+      }
+    }
+  }
+}

@@ -33,3 +33,11 @@ a {
   text-decoration: none;
   @include opacityHover(0.6);
 }
+
+.ProseMirror .is-empty::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: rgba($bg-color, 0.2);
+  pointer-events: none;
+  height: 0;
+}
