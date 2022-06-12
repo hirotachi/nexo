@@ -1,0 +1,32 @@
+@use "~abstracts" as *;
+
+.controls {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1.4rem;
+  .formatting {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    .action {
+      cursor: pointer;
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    .active {
+      opacity: 1;
+    }
+  }
+  .history {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    .action {
+      cursor: pointer;
+    }
+  }
+}

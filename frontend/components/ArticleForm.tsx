@@ -9,6 +9,8 @@ import Heading from "@tiptap/extension-heading";
 import Text from "@tiptap/extension-text";
 import Paragraph from "@tiptap/extension-paragraph";
 import clsx from "clsx";
+import { useRouter } from "next/router";
+import EditorControls from "@components/EditorControls";
 
 const CustomTitleDocument = Document.extend({
   content: "heading block*",
@@ -104,6 +106,7 @@ const ArticleForm = (props: ArticleFormProps) => {
     });
   };
 
+  const router = useRouter();
   return (
     <div className={styles.form}>
       <h1 className={styles.heading}>Create Article</h1>
@@ -124,19 +127,26 @@ const ArticleForm = (props: ArticleFormProps) => {
           onChange={(tags) => updateField("tags", tags)}
         />
       </div>
-      <div>preview image</div>
+      <div className={clsx(styles.field, styles.required)}>
+        <span className={styles.label}>Preview Image</span>
+        <div>preview image</div>
+      </div>
       <div className={styles.main}>
         <div className={styles.controls}>
           <div className={styles.btns}>
-            <button className={styles.cancel}>cancel</button>
+            {values && (
+              <button className={styles.cancel} onClick={() => router.back()}>
+                cancel
+              </button>
+            )}
             <button className={styles.submit} onClick={handleSubmit}>
               {values ? "update" : "create"}
             </button>
           </div>
-          <div className={styles.formatting}>formatting controls</div>
+          <EditorControls editor={content} />
         </div>
 
-        <EditorContent editor={content} />
+        <EditorContent editor={content} className={styles.content} />
       </div>
     </div>
   );

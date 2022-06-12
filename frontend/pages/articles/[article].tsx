@@ -55,6 +55,7 @@ const Article = () => {
             <img src={preview} alt={title} />
           </div>
         </div>
+        <div>tags</div>
         <div>more like this</div>
       </div>
     </div>
