@@ -1,4 +1,54 @@
 @use "~abstracts" as *;
 
+@keyframes ping {
+  50% {
+    transform: translateX(0.5rem);
+    background-color: $error-color;
+  }
+}
 .wrapper {
+  border: 1px solid rgba($bg-color, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  transition: all 0.2s ease;
+  cursor: text;
+  gap: 1rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+  .tag {
+    background-color: $bg-color;
+    color: $typo-color;
+    display: flex;
+    padding: 0.5rem;
+    align-items: center;
+    text-transform: uppercase;
+    .remove {
+      padding: 0 0.5rem;
+      padding-left: 0.8rem;
+      cursor: pointer;
+    }
+  }
+  .highlighted {
+    animation: ping 0.5s ease-in-out infinite alternate;
+  }
+  .input {
+    overflow-x: hidden;
+    padding: 0.5rem;
+    display: flex;
+    .placeholder {
+      color: rgba($bg-color, 0.2);
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    input {
+      border: none;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+.focused {
+  border-color: $bg-color;
 }

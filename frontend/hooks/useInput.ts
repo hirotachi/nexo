@@ -31,7 +31,7 @@ function useInput(
     focused: isFocused,
     onFocus,
     onBlur,
-    props: { value, onChange, onFocus, onBlur },
+    props: { value, onChange, onFocus, onBlur, ref },
   };
 }
 

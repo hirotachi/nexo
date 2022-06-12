@@ -16,7 +16,7 @@ const CustomTitleDocument = Document.extend({
 
 type ArticleFormInput = {
   title: string;
-  tags: { id: number | string; name: string }[];
+  tags: string[];
   preview: string;
   content: string;
   summary: string;
@@ -96,13 +96,14 @@ const ArticleForm = (props: ArticleFormProps) => {
 
   const updateField = <K extends keyof typeof state>(
     key: K,
-    value: typeof state[K]
+    value: typeof state[K] | ((current: typeof state[K]) => typeof state[K])
   ) => {
     setState({
       ...state,
-      [key]: value,
+      [key]: typeof value === "function" ? value(state[key]) : value,
     });
   };
+
   return (
     <div className={styles.form}>
       <h1 className={styles.heading}>Create Article</h1>
@@ -116,10 +117,13 @@ const ArticleForm = (props: ArticleFormProps) => {
         <EditorContent editor={summary} className={styles.summary} />
       </div>
 
-      <TagsInput
-        list={state.tags}
-        onChange={(tags) => updateField("tags", tags)}
-      />
+      <div className={styles.field}>
+        <span className={styles.label}>tags</span>
+        <TagsInput
+          list={state.tags}
+          onChange={(tags) => updateField("tags", tags)}
+        />
+      </div>
       <div>preview image</div>
       <div className={styles.main}>
         <div className={styles.controls}>
