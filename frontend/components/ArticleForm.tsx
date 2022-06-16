@@ -67,7 +67,7 @@ const ArticleForm = (props: ArticleFormProps) => {
       }),
     ],
     onUpdate: ({ editor }) => {
-      updateField("title", editor.getText());
+      updateField("title", editor.getText().replace(/\n+/g, ""));
     },
     content: state.title,
   });
@@ -89,11 +89,8 @@ const ArticleForm = (props: ArticleFormProps) => {
     content: state.content,
   });
 
-  const cancel = () => {
-    console.log("cancel");
-  };
   const handleSubmit = () => {
-    onSubmit(state);
+    onSubmit?.(state);
   };
 
   const updateField = <K extends keyof typeof state>(

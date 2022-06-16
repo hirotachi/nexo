@@ -33,7 +33,6 @@
     .title,
     .summary {
       font-family: $secondary-fonts;
-      background-color: rgba($tertiary-border-color, 0.4);
       font-size: 1.6rem;
       & > * {
         border: 1px solid rgba($bg-color, 0.4);

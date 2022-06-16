@@ -1,4 +1,4 @@
-import React, { FormEventHandler } from "react";
+import React, { FormEventHandler, useState } from "react";
 import useForm from "@hooks/useForm";
 import styles from "@modules/Account.module.scss";
 import { EditorContent, useEditor } from "@tiptap/react";
@@ -6,6 +6,7 @@ import Document from "@tiptap/extension-document";
 import { Paragraph } from "@tiptap/extension-paragraph";
 import { Text } from "@tiptap/extension-text";
 import SocialsInput from "@components/SocialsInput";
+import AvatarInput from "@components/AvatarInput";
 
 const accountValues: Pick<
   TUser,
@@ -23,6 +24,9 @@ const Account = () => {
     currentPassword: "",
     newPassword: "",
   });
+  const [avatar, setAvatar] = useState(
+    "https://cdn.dribbble.com/users/42578/avatars/small/d0ac345ce3f79bf2c2e7e64527bbf342.jpg?1530900788"
+  );
 
   const handleAccountSubmit: FormEventHandler = (e) => {
     e.preventDefault();
@@ -58,7 +62,11 @@ const Account = () => {
           share.
         </p>
       </div>
-      <div className={styles.avatar}>avatar input</div>
+      <AvatarInput
+        value={avatar}
+        onChange={(v) => setAvatar(v)}
+        defaultText={accountState.name}
+      />
       <form onSubmit={handleAccountSubmit} className={styles.accountForm}>
         {Object.entries(accountState).map(([key, val]) => {
           const k = key as keyof typeof accountState;

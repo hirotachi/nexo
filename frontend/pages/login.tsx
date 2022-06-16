@@ -29,7 +29,7 @@ const Login = () => {
     <AuthForm
       title={"Sign In"}
       description={
-        "Creating a VICE account lets us know what you're into so we can personalize the stories you see in your daily newsletter, apps, and elsewhere."
+        "Creating a NEXO account lets us know what you're into so we can personalize the stories you see in your daily newsletter, apps, and elsewhere."
       }
       other={{
         link: "/register",

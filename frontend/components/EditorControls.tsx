@@ -28,7 +28,7 @@ const EditorControls = (props: EditorControlsProps) => {
   const [open, setOpen] = useState(false);
   const textTypes = [
     {
-      text: "Paragraph",
+      text: "text",
       action: () => editor?.chain().focus().setParagraph().run(),
       active: editor?.isActive("paragraph"),
     },
@@ -37,7 +37,7 @@ const EditorControls = (props: EditorControlsProps) => {
       .map((v, i) => {
         const level = (i + 2) as Level;
         return {
-          text: `Heading ${level}`,
+          text: `header ${level}`,
           active: editor?.isActive("heading", { level }),
           action: () => editor?.chain().focus().toggleHeading({ level }).run(),
         };

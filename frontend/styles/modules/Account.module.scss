@@ -50,6 +50,9 @@
         text-transform: capitalize;
         font-size: 1.2rem;
         font-weight: 600;
+        @include desktop {
+          font-size: 1.4rem;
+        }
       }
 
       .input {
