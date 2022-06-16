@@ -105,14 +105,19 @@
         border: 1px solid rgba($bg-color, 0.4);
         transition: all 0.2s ease;
         padding: 1rem;
+        min-height: 15rem;
         &:focus {
           outline: none;
           border-color: $bg-color;
         }
       }
+      p {
+        margin-bottom: 1rem;
+      }
       ul,
       ol {
-        list-style-position: inside;
+        list-style-position: outside;
+        margin-left: 1.5rem;
       }
     }
   }
