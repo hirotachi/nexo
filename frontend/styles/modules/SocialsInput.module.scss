@@ -1,0 +1,42 @@
+@use "~abstracts" as *;
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  input {
+    padding: 1rem;
+    border: 1px solid $tertiary-border-color;
+    transition: all 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $bg-color;
+    }
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.4rem;
+      background-color: $bg-color;
+      color: $typo-color;
+      padding: 1rem;
+
+      a {
+        text-decoration: underline;
+      }
+
+      .remove {
+        cursor: pointer;
+        @include opacityHover;
+      }
+    }
+  }
+}

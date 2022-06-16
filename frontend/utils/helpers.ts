@@ -1,3 +1,5 @@
+import { SocialLinks } from "social-links";
+
 export function pick<T>(obj: T, keys: (keyof T)[]): Partial<T> {
   return keys.reduce((acc, key) => {
     if (obj[key] !== undefined) {
@@ -27,4 +29,11 @@ export function getSiteName(url: string) {
 
 export function arrayOf<T>(length: number, data: T) {
   return Array.from({ length }, (_, i) => ({ ...data, id: i }));
+}
+
+const socialLinks = new SocialLinks();
+
+export function socialInfo(link: string) {
+  const siteName = getSiteName(link);
+  return { siteName, profileId: socialLinks.getProfileId(siteName, link) };
 }

@@ -74,7 +74,7 @@ const ArticleForm = (props: ArticleFormProps) => {
 
   const content = useEditor({
     onUpdate: ({ editor }) => {
-      updateField("content", editor.getText());
+      updateField("content", editor.getHTML());
     },
     extensions: [
       StarterKit.configure({

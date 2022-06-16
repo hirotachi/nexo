@@ -22,6 +22,7 @@ specifiers:
   react: 18.1.0
   react-dom: 18.1.0
   sass: ^1.51.0
+  social-links: ^1.4.5
   typescript: 4.6.4
   yup: ^0.32.11
 
@@ -40,6 +41,7 @@ dependencies:
   next: 12.1.6_achxnsjje7b5gy3iikucscdeta
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
+  social-links: 1.4.5
   yup: 0.32.11
 
 devDependencies:
@@ -3952,6 +3954,10 @@ packages:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
     dev: true
+
+  /social-links/1.4.5:
+    resolution: {integrity: sha512-HzUwJ+QILy6x0Kk1BGl/Q1YqQMgaq3ea9DVA7CXSgYZPmooYlPViWbaRI6CdY+ORtKQzqfkkt2MdFxqAW7m3hg==}
+    dev: false
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}

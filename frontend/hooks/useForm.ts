@@ -9,8 +9,14 @@ function useForm<T>(values: T) {
   );
   const [state, setState] = useState<T>(values);
   const clear = () => setState(values as T);
-  const updateField = (field: keyof T, value: any) => {
-    setState((s) => ({ ...s, [field]: value }));
+  const updateField = <K extends keyof T>(
+    field: K,
+    value: T[K] | ((val: T[K]) => T[K])
+  ) => {
+    setState((s) => ({
+      ...s,
+      [field]: typeof value === "function" ? value(s[field]) : value,
+    }));
   };
   const addTouched = (field: keyof T) => {
     setTouched((t) => ({ ...t, [field]: true }));
