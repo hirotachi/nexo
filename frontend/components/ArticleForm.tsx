@@ -18,7 +18,7 @@ const CustomTitleDocument = Document.extend({
 
 type ArticleFormInput = {
   title: string;
-  tags: string[];
+  topics: string[];
   preview: string;
   content: string;
   summary: string;
@@ -29,9 +29,9 @@ type ArticleFormProps = {
   onSubmit: (values: ArticleFormInput) => void;
   values?: ArticleFormInput;
 };
-const initialState = {
+const initialState: ArticleFormInput = {
   title: "",
-  tags: [],
+  topics: [],
   preview: "",
   content: "",
   summary: "",
@@ -120,8 +120,8 @@ const ArticleForm = (props: ArticleFormProps) => {
       <div className={styles.field}>
         <span className={styles.label}>tags</span>
         <TagsInput
-          list={state.tags}
-          onChange={(tags) => updateField("tags", tags)}
+          list={state.topics}
+          onChange={(tags) => updateField("topics", tags)}
         />
       </div>
       <div className={clsx(styles.field, styles.required)}>

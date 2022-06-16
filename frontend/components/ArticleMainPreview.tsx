@@ -12,7 +12,7 @@ const ArticleMainPreview = () => {
     preview,
     section,
     summary,
-    tags,
+    topics,
     title,
   } = articleData;
   const link = `/articles/${id}`;

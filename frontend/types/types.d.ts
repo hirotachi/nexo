@@ -35,7 +35,7 @@ type TArticle = {
     id: number;
     name: string;
   };
-  tags: { id: number; name: string }[];
+  topics: { id: number; name: string }[];
   content: string;
   preview: string;
   author: TUser;

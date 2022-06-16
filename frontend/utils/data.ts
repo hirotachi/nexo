@@ -59,7 +59,9 @@ export const articleData: TArticle = {
   section: { id: 0, name: "news" },
   summary:
     "Heard repeatedly denied she was after Depp’s money and told the court she had pledged her $7 million divorce settlement to charity.",
-  tags: [{ name: "tester" }].map((v, i) => ({ ...v, id: i + 1 })),
+  topics: Array(8)
+    .fill({ name: "tester" })
+    .map((v, i) => ({ name: `${v.name}-${i}`, id: i + 1 })),
   title:
     "‘You Wanted Mr. Depp’s Money’: Johnny Depp’s Lawyers Cross-Examine Amber Heard",
   preview:

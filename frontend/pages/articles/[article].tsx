@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styles from "@modules/Article.module.scss";
 import { articleData } from "@utils/data";
 import Link from "next/link";
@@ -13,7 +13,7 @@ const Article = () => {
     preview,
     section,
     summary,
-    tags,
+    topics,
     title,
   } = articleData;
   return (
@@ -54,8 +54,20 @@ const Article = () => {
           <div className={styles.preview}>
             <img src={preview} alt={title} />
           </div>
+          <div>html content</div>
+          <div className={styles.tags}>
+            <span className={styles.name}>tagged:</span>
+            {topics.map((topic, i) => (
+              <Fragment key={topic.id}>
+                {" "}
+                {i ? "," : ""}
+                <Link href={`/topic/${topic.id}`}>
+                  <a className={styles.tag}>{topic.name}</a>
+                </Link>
+              </Fragment>
+            ))}
+          </div>
         </div>
-        <div>tags</div>
         <div>more like this</div>
       </div>
     </div>
