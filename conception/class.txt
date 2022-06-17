@@ -2,15 +2,15 @@ classDiagram
 direction LR
 
 
-Contributor "1..1" --o "0..*" Article: publishes
+Contributor "1" --o "0..*" Article: publishes
 
-Admin "1..1" --o "1..*" Article: manages
-Admin "1..1" --o "0..*" User: manages
-
-
+Admin "1" --o "0..*" Article: manages
+Admin "1" --o "0..*" User: manages
 
 
-Article "1..1" --o "0..*" Tag: has
+
+
+Article "0..*" -- "0..*" Tag: has
 
 
 Reader --|> User
@@ -39,7 +39,6 @@ class User {
    
 class Reader {
     +string perferredLanguage
-    +getAuthor()
 }
 
 class Tag {

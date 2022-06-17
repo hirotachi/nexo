@@ -1,0 +1,43 @@
+@use "~abstracts" as *;
+
+.more {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $bg-color;
+  padding-top: 2rem;
+  .heading {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+
+    .preview {
+      .main {
+        .topic {
+        }
+
+        .info {
+          .title {
+          }
+
+          .author {
+          }
+
+          .date {
+          }
+        }
+      }
+
+      .img {
+        img {
+          @include size(100%);
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

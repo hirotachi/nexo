@@ -3,6 +3,8 @@ import styles from "@modules/Article.module.scss";
 import { articleData } from "@utils/data";
 import Link from "next/link";
 import { format } from "date-fns";
+import MoreLike from "@components/MoreLike";
+import { arrayOf } from "@utils/helpers";
 
 const Article = () => {
   const {
@@ -68,7 +70,7 @@ const Article = () => {
             ))}
           </div>
         </div>
-        <div>more like this</div>
+        <MoreLike list={arrayOf(5, articleData)} />
       </div>
     </div>
   );

@@ -46,18 +46,9 @@ rectangle Nexo {
     admin -|> reader
     
     admin --- view_user
-    admin --- create_user
     admin --- edit_user
     admin --- delete_user
     
-    (delete report) as delete_report
-    (view all reports) as view_all_reports
-    
-    admin --- delete_report 
-    admin --- view_all_reports
-    
-    view_all_reports ..> authentication :<<include>>
-    delete_report ..> authentication :<<include>>
     
     create_user ..> authentication :<<include>>
     edit_user ..> authentication :<<include>>
