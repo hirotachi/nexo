@@ -33,8 +33,7 @@ class Article {
 class User {
     +int id
     +string avatar
-    +string firstName
-    +string lastName
+    +string name
     +string email
     -string password
    }
