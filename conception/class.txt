@@ -10,8 +10,8 @@ Admin "1" --o "0..*" User: manages
 
 
 
-Article "0..*" -- "0..*" Tag: has
-
+Article "0..*" -- "0..*" Topic: has
+Article "0..*" o-- "1" Section: has 
 
 Reader --|> User
 Contributor --|> User 
@@ -20,15 +20,18 @@ Contributor --|> User
 
 
 class Article {
-    -int id
+    +int id
     +string title
     +string content
+    +string preview
+    +string summary
+    +Date created_at
     +getAuthor()
 }
 
 
 class User {
-    -int id
+    +int id
     +string avatar
     +string firstName
     +string lastName
@@ -41,8 +44,13 @@ class Reader {
     +string perferredLanguage
 }
 
-class Tag {
-    -int id
+class Topic {
+    +int id
+    +string name
+}
+
+class Section {
+    +int id
     +string name
 }
 

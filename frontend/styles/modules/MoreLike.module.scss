@@ -16,8 +16,13 @@
     flex-direction: column;
 
     .preview {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
       .main {
         .topic {
+          font-size: 1.2rem;
+          text-decoration: underline;
         }
 
         .info {
