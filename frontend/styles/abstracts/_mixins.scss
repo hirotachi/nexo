@@ -116,3 +116,10 @@
     opacity: $opacity;
   }
 }
+
+@mixin border($left, $right: $left, $top: $left, $bottom: $top) {
+  border-left: $left;
+  border-right: $right;
+  border-top: $top;
+  border-bottom: $bottom;
+}

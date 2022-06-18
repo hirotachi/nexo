@@ -61,8 +61,7 @@ const Article = () => {
             <span className={styles.name}>tagged:</span>
             {topics.map((topic, i) => (
               <Fragment key={topic.id}>
-                {" "}
-                {i ? "," : ""}
+                {i ? ", " : ""}
                 <Link href={`/topic/${topic.id}`}>
                   <a className={styles.tag}>{topic.name}</a>
                 </Link>
