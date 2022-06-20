@@ -18,15 +18,7 @@ export const socialIcons = {
   other: faLink,
 };
 
-export const routes = [
-  "home",
-  "news",
-  "food",
-  "tech",
-  "world news",
-  "sports",
-  "blog",
-];
+export const routes = ["home", "news", "food", "tech", "world news", "sports"];
 
 export const socials = [
   "https://www.facebook.com/vice",

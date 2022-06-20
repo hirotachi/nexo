@@ -32,7 +32,10 @@ const Nav = () => {
         <div className={styles.links}>
           {routes.map((route, i) => {
             return (
-              <Link href={!i ? "/" : `/${route}`} key={route}>
+              <Link
+                href={!i ? "/" : `/sections/${route.replace(/\s+/g, "-")}`}
+                key={route}
+              >
                 <a className={styles.link}>{route}</a>
               </Link>
             );
