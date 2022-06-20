@@ -1,6 +1,7 @@
 @use "~abstracts" as *;
 
 .table {
+  border: 1px solid $tertiary-border-color;
   thead {
     padding: 1rem;
     background-color: $bg-color;
