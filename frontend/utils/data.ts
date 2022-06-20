@@ -48,6 +48,7 @@ export const userData: TUser = {
   email: "anya.zoledziowski@vice.com",
   headline: "Senior Reporter",
   name: "Anya Zoledziowski",
+  role: "contributor",
   socials: ["https://twitter.com/@anyazoledz"],
 };
 

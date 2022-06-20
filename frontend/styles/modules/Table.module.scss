@@ -1,0 +1,36 @@
+@use "~abstracts" as *;
+
+.table {
+  thead {
+    padding: 1rem;
+    background-color: $bg-color;
+    color: $typo-color;
+    border-collapse: collapse;
+    border-color: $tertiary-border-color;
+    border-spacing: 0;
+
+    th {
+      padding: 1rem;
+      font-size: 1.4rem;
+      @include tablet {
+        padding: 1.5rem 1rem;
+      }
+    }
+  }
+  tbody {
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid $tertiary-border-color;
+    }
+  }
+}
+
+.hideOnMobile {
+  display: none;
+  @include tablet {
+    display: revert;
+  }
+}
+.stretch {
+  width: 100%;
+}

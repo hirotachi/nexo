@@ -1,0 +1,23 @@
+@use "~abstracts" as *;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+  .btn {
+    background-color: $bg-color;
+    color: $typo-color;
+    padding: 0.5rem 1rem;
+    @include opacityHover;
+    cursor: pointer;
+  }
+  .disabled {
+    opacity: 0.5;
+  }
+
+  .current {
+    font-weight: 600;
+  }
+}
