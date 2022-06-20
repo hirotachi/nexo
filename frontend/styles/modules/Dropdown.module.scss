@@ -23,6 +23,7 @@
     position: absolute;
     left: 0;
     top: 110%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -32,6 +33,10 @@
     .option {
       cursor: pointer;
       padding: 1rem;
+      transition: all 0.2s ease;
+      &:hover {
+        background-color: $tertiary-border-color;
+      }
     }
 
     .selected {

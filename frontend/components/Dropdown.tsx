@@ -24,7 +24,7 @@ const Dropdown = <T extends string | number>(props: DropdownProps<T>) => {
       <span className={styles.current}>
         {value}
         <span className={styles.btn}>
-          <FontAwesomeIcon icon={isOpen ? faChevronDown : faChevronUp} />
+          <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} />
         </span>
       </span>
       {isOpen && (
