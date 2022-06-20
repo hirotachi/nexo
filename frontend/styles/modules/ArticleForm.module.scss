@@ -44,6 +44,14 @@
         }
       }
     }
+    input {
+      padding: 1rem;
+      border: 1px solid $tertiary-border-color;
+      &:focus {
+        outline: none;
+        border-color: $bg-color;
+      }
+    }
 
     .summary {
       font-size: 1.4rem;

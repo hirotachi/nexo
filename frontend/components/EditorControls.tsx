@@ -18,6 +18,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
 import { Level } from "@tiptap/extension-heading";
 import faChevronDown from "@icons/regular/faChevronDown";
+import useClickOutside from "@hooks/useClickOutside";
 
 type EditorControlsProps = {
   editor: Editor | null;
@@ -126,12 +127,17 @@ const EditorControls = (props: EditorControlsProps) => {
       action: () => editor?.chain().focus().redo().run(),
     },
   ];
+  const ref = useClickOutside(() => open && setOpen(false));
 
   if (!editor) return null;
 
   return (
     <div className={styles.controls}>
-      <div className={styles.types} onClick={() => setOpen((v) => !v)}>
+      <div
+        className={styles.types}
+        onClick={() => setOpen((v) => !v)}
+        ref={ref}
+      >
         <div className={styles.current}>
           <span className={styles.text}>
             {textTypes.find((t) => t.active)?.text}

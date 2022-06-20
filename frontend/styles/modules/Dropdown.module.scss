@@ -1,0 +1,41 @@
+@use "~abstracts" as *;
+
+.dropdown {
+  position: relative;
+  text-transform: capitalize;
+  font-size: 1.4rem;
+  width: 100%;
+  display: flex;
+  .current {
+    padding: 1rem;
+    border: 1px solid $tertiary-border-color;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    .btn {
+      font-size: 1.2rem;
+    }
+  }
+
+  .list {
+    position: absolute;
+    left: 0;
+    top: 110%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 0 0.2rem rgba(black, 0.2);
+    z-index: 2;
+
+    .option {
+      cursor: pointer;
+      padding: 1rem;
+    }
+
+    .selected {
+      background-color: $tertiary-border-color;
+    }
+  }
+}

@@ -11,6 +11,8 @@ import Paragraph from "@tiptap/extension-paragraph";
 import clsx from "clsx";
 import { useRouter } from "next/router";
 import EditorControls from "@components/EditorControls";
+import Dropdown from "@components/Dropdown";
+import { routes } from "@utils/constants";
 
 const CustomTitleDocument = Document.extend({
   content: "heading block*",
@@ -35,7 +37,7 @@ const initialState: ArticleFormInput = {
   preview: "",
   content: "",
   summary: "",
-  section: "",
+  section: routes[1],
 };
 const ArticleForm = (props: ArticleFormProps) => {
   const { values, onSubmit } = props;
@@ -111,6 +113,14 @@ const ArticleForm = (props: ArticleFormProps) => {
         <span className={styles.label}>title</span>
         <EditorContent editor={title} className={styles.title} />
       </div>
+      <div className={clsx(styles.field, styles.required)}>
+        <span className={styles.label}>Section</span>
+        <Dropdown
+          value={state.section}
+          options={routes.slice(1)}
+          onClick={(option) => updateField("section", option)}
+        />
+      </div>
 
       <div className={styles.field}>
         <span className={styles.label}>summary</span>
@@ -126,7 +136,11 @@ const ArticleForm = (props: ArticleFormProps) => {
       </div>
       <div className={clsx(styles.field, styles.required)}>
         <span className={styles.label}>Preview Image</span>
-        <div>preview image</div>
+        <input
+          type={"text"}
+          onChange={(e) => updateField("preview", e.target.value)}
+          placeholder={"Preview image link"}
+        />
       </div>
       <div className={styles.main}>
         <div className={styles.controls}>
