@@ -12,7 +12,7 @@ type DropdownProps<T> = {
   onClick: (option: T) => void;
 };
 const Dropdown = <T extends string | number>(props: DropdownProps<T>) => {
-  const { options, value } = props;
+  const { options, value, onClick } = props;
   const [isOpen, setIsOpen] = useState(false);
   const ref = useClickOutside(() => isOpen && setIsOpen(false));
   return (
@@ -32,6 +32,7 @@ const Dropdown = <T extends string | number>(props: DropdownProps<T>) => {
           {options.map((option) => {
             return (
               <span
+                onClick={() => onClick(option)}
                 key={option}
                 className={clsx(
                   styles.option,
