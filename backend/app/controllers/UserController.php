@@ -6,7 +6,7 @@ use App\Core\Request;
 use App\models\User;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminController
+class UserController
 {
 	private User $userModel;
 
@@ -15,7 +15,7 @@ class AdminController
 		$this->userModel = $userModel;
 	}
 
-	public function allUsers(Request $request)
+	public function all(Request $request)
 	{
 		$page = $request->query->get("page") ?? 1;
 		$limit = $request->query->get("limit") ?? 10;
@@ -28,10 +28,13 @@ class AdminController
 			"total" => $count,
 			"pages" => ceil($count / $limit)
 		];
+		foreach ($users as $user) {
+			unset($user->password);
+		}
 		return ["users" => $users, "pagination" => $pagination];
 	}
 
-	public function removeUser(Request $request)
+	public function remove(Request $request)
 	{
 		$userId = $request->query->get("id");
 		if (!$userId) {
@@ -45,7 +48,7 @@ class AdminController
 		return ["message" => "success"];
 	}
 
-	public function removeManyUsers(Request $request)
+	public function removeMany(Request $request)
 	{
 		$userIds = $request->query->get("ids");
 		if (!$userIds) {
@@ -59,13 +62,14 @@ class AdminController
 		$this->userModel->deleteManyByField("id", $userIds);
 	}
 
-	public function getUser(Request $request)
+	public function getOne(Request $request)
 	{
 		$userId = $request->attributes->get("id");
 		$user = $this->userModel->findByID($userId);
 		if (!$user) {
 			return \response(["error" => "user not found"], Response::HTTP_NOT_FOUND);
 		}
+		unset($user->password);
 		return $user;
 	}
 }

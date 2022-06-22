@@ -1,10 +1,10 @@
 <?php
 
 
-use App\controllers\AdminController;
 use App\controllers\ArticlesController;
 use App\controllers\AuthController;
 use App\controllers\SectionsController;
+use App\controllers\UserController;
 use App\Core\Route;
 
 Route::get("/", function () {
@@ -42,9 +42,9 @@ Route::group("/sections", function () {
 
 
 // admin controls
-Route::group("/admin", function () {
-	Route::get("/users", [AdminController::class, "allUsers"])->middleware("admin");
-	Route::delete("/users/{id}", [AdminController::class, "removeUser"])->middleware("admin");
-	Route::delete("/users/", [AdminController::class, "removeManyUsers"])->middleware("admin");
-	Route::get("/users/{id}", [AdminController::class, "getUser"])->middleware("admin");
+Route::group("/users", function () {
+	Route::get("/", [UserController::class, "all"])->middleware(["auth", "admin"]);
+	Route::delete("/{id}", [UserController::class, "remove"])->middleware(["auth", "admin"]);
+	Route::delete("/", [UserController::class, "removeMany"])->middleware(["auth", "admin"]);
+	Route::get("/{id}", [UserController::class, "getOne"]);
 });
