@@ -3,24 +3,30 @@
 namespace App\controllers;
 
 use App\Core\Request;
+use App\models\Article;
 use App\models\User;
 use Symfony\Component\HttpFoundation\Response;
 
 class UserController
 {
 	private User $userModel;
+	private Article $articleModel;
 
-	public function __construct(User $userModel)
+	public function __construct(User $userModel, Article $articleModel)
 	{
 		$this->userModel = $userModel;
+		$this->articleModel = $articleModel;
 	}
 
 	public function all(Request $request)
 	{
 		$page = $request->query->get("page") ?? 1;
 		$limit = $request->query->get("limit") ?? 10;
+		$query = $request->query->get("query") ?? null;
 		$offset = ($page - 1) * $limit;
-		$users = $this->userModel->findAll(limit: $limit, offset: $offset);
+		$placeholder = $query ? ["query" => "%$query%"] : [];
+		$users = $this->userModel->findAll($query ? "where name like :query or email like :query" : "", $placeholder,
+			limit: $limit, offset: $offset);
 		$count = $this->userModel->count();
 		$pagination = [
 			"page" => $page,
@@ -71,5 +77,15 @@ class UserController
 		}
 		unset($user->password);
 		return $user;
+	}
+
+	public function articles(Request $request)
+	{
+		$userId = $request->attributes->get("id");
+		$user = $this->userModel->findByID($userId);
+		if (!$user) {
+			return \response(["error" => "user not found"], Response::HTTP_NOT_FOUND);
+		}
+		return $this->articleModel->findAll("where authorId = :user_id", ["user_id" => $userId]);
 	}
 }

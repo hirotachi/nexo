@@ -47,4 +47,5 @@ Route::group("/users", function () {
 	Route::delete("/{id}", [UserController::class, "remove"])->middleware(["auth", "admin"]);
 	Route::delete("/", [UserController::class, "removeMany"])->middleware(["auth", "admin"]);
 	Route::get("/{id}", [UserController::class, "getOne"]);
+	Route::get("/{id}/articles", [UserController::class, "articles"]);
 });
