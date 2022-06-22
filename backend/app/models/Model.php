@@ -130,7 +130,7 @@ abstract class Model
 	): bool|array {
 		$query = ["select * from $this->table $filter"];
 		if ($orderBy) {
-			$query[] = "order by $orderBy";
+			$query[] = "order by $this->table.$orderBy";
 		}
 		if ($limit) {
 			$query[] = " limit $limit";
@@ -143,6 +143,13 @@ abstract class Model
 		$query = implode(" ", $query);
 		$f = $this->connection->prepare($query);
 		return !$f->execute($placeholderValues) ? false : $f->fetchAll(PDO::FETCH_OBJ);
+	}
+
+	public function count(string $filter, array $placeholderValues)
+	{
+		$f = $this->connection->prepare("select count(*) from $this->table $filter");
+		$f->execute($placeholderValues);
+		return $f->fetchColumn();
 	}
 
 	protected function getDefaults(): array

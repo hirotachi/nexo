@@ -17,6 +17,9 @@ Route::post("/login", [AuthController::class, "login"]);
 Route::post("/reset", [AuthController::class, "passwordReset"]);
 
 Route::get("/me", [AuthController::class, "me"])->middleware("auth");
+Route::put("/account", [AuthController::class, "updateAccount"])->middleware("auth");
+Route::put("/role", [AuthController::class, "changeRole"])->middleware("auth");
+Route::put("/password", [AuthController::class, "changePassword"])->middleware("auth");
 
 // articles crud -----------------------------------------------------
 

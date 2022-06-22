@@ -106,6 +106,7 @@ class ArticlesController
 			$sectionId = $this->sectionModel->findOne("name = :name", ["name" => $section])->id;
 		}
 		if ($topics) {
+			$topics = explode(",", $topics);
 			$topicsIds = array_map(function ($topic) {
 				return $topic->id;
 			}, $this->topicModel->findAllIn("name", $topics));
@@ -113,60 +114,71 @@ class ArticlesController
 		$filter = [];
 		$placeholders = [];
 
-		$addWhere = false;
 		if (count($topicsIds) > 0) {
-			$topicsPlaceholders = array_fill(0, count($topicsIds ?? []), "?");
-			$filter[] = "inner join article_topic at on at.article_id = a.id where at.topic_id in (".implode(",",
-					$topicsPlaceholders).")";
-			$placeholders = array_merge($placeholders, $topicsIds);
+			$articlesIds = array_map(function ($articleTopic) {
+				return $articleTopic->articleId;
+			}, $this->articleTopicModel->findAllIn("topicId", $topicsIds));
+			$filter[] = "id IN (".implode(",", $articlesIds).")";
 		}
 		if ($sectionId) {
-			$addWhere = true;
-			$filter[] = "a.section_id = :sectionId";
+			$filter[] = "sectionId = :sectionId";
 			$placeholders["sectionId"] = $sectionId;
 		}
 		if ($query) {
-			$addWhere = true;
 			$filter[] = "title like :query";
 			$placeholders["query"] = "%$query%";
 		}
 		$limit = 10;
-		$str = ($addWhere ? "where " : "").implode(" and ", $filter);
+		$str = implode(" and ", $filter);
+		if ($str) {
+			$str = "where ".$str;
+		}
 		$articles = $this->articleModel->findAll($str, $placeholders, limit: $limit, offset: ($page - 1) * $limit);
-		$sections = $this->sectionModel->findAll();
-		$sectionMapById = [];
+		$pagination = [
+			"page" => $page,
+			"perPage" => $limit,
+			"total" => $this->articleModel->count($str, $placeholders)
+		];
+		if (count($articles) > 0) {
+			$sections = $this->sectionModel->findAll();
+			$sectionMapById = [];
 
-		foreach ($sections as $section) {
-			$sectionMapById[$section->id] = $section;
-		}
-		$articlesIds = [];
-		$articlesMapById = [];
-		foreach ($articles as $article) {
-			$article->section = $sectionMapById[$article->sectionId];
-			$articlesIds[] = $article->id;
-			$articlesMapById[$article->id] = $article;
-			$articlesMapById[$article->id]->topics = [];
-			unset($article->sectionId);
-		}
-
-		$articlesTopics = $this->articleTopicModel->findAllIn("articleId", $articlesIds);
-		if (count($articlesTopics) > 0) {
-
-			$topicsIds = [];
-			foreach ($articlesTopics as $articleTopic) {
-				$topicsIds[] = $articleTopic->topicId;
+			foreach ($sections as $section) {
+				$sectionMapById[$section->id] = $section;
 			}
-			$topics = $this->topicModel->findAllIn("id", $topicsIds);
-			$topicsMapById = [];
-			foreach ($topics as $topic) {
-				$topicsMapById[$topic->id] = $topic;
+			$articlesIds = [];
+			$articlesMapById = [];
+			foreach ($articles as $article) {
+				$article->section = $sectionMapById[$article->sectionId];
+				$articlesIds[] = $article->id;
+				$articlesMapById[$article->id] = $article;
+				$articlesMapById[$article->id]->topics = [];
+				unset($article->sectionId);
 			}
-			foreach ($articlesTopics as $articleTopic) {
-				$articlesMapById[$articleTopic->articleId]->topics[] = $topicsMapById[$articleTopic->topicId];
+
+			$articlesTopics = $this->articleTopicModel->findAllIn("articleId", $articlesIds);
+			if (count($articlesTopics) > 0) {
+
+				$topicsIds = [];
+				foreach ($articlesTopics as $articleTopic) {
+					$topicsIds[] = $articleTopic->topicId;
+				}
+				$topics = $this->topicModel->findAllIn("id", $topicsIds);
+				$topicsMapById = [];
+				foreach ($topics as $topic) {
+					$topicsMapById[$topic->id] = $topic;
+				}
+				foreach ($articlesTopics as $articleTopic) {
+					$articlesMapById[$articleTopic->articleId]->topics[] = $topicsMapById[$articleTopic->topicId];
+				}
 			}
 		}
 
-		return $articles;
+
+		return [
+			"articles" => $articles,
+			"pagination" => $pagination,
+		];
 	}
 
 	public function findById(Request $request)
