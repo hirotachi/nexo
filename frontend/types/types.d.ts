@@ -1,25 +1,25 @@
-type TExternalArticle = {
-  title: string;
-  author: string;
-  published_date: string;
-  published_date_precision: string;
-  link: string;
-  clean_url: string;
-  excerpt: string;
-  summary: string;
-  rights: string;
-  rank: number;
-  topic: string;
-  country: string;
-  language: string;
-  authors: string[];
-  media: string;
-  twitter_account?: string | null;
-  _score: number;
-  is_opinion: boolean;
-  _id?: string;
-  id?: number;
-};
+// type TExternalArticle = {
+//   title: string;
+//   author: string;
+//   published_date: string;
+//   published_date_precision: string;
+//   link: string;
+//   clean_url: string;
+//   excerpt: string;
+//   summary: string;
+//   rights: string;
+//   rank: number;
+//   topic: string;
+//   country: string;
+//   language: string;
+//   authors: string[];
+//   media: string;
+//   twitter_account?: string | null;
+//   _score: number;
+//   is_opinion: boolean;
+//   _id?: string;
+//   id?: number;
+// };
 
 type TArticlePreview = Pick<
   TExternalArticle,
@@ -29,7 +29,7 @@ type TArticlePreview = Pick<
 type TArticle = {
   id: number;
   title: string;
-  created_at: string;
+  createdAt: string;
   summary: string;
   source?: { name: string; url: string };
   section: {
@@ -74,4 +74,15 @@ type TAuthResponse = {
   user?: TUserPreview;
   role?: TUser["role"];
   errors: { [P in TRegisterInput]: string[] };
+};
+
+type TExternalArticle = {
+  category: string;
+  description: string;
+  image: string;
+  source: string;
+  url: string;
+  published_at: string;
+  title: string;
+  author: string;
 };

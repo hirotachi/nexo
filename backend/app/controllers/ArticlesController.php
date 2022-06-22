@@ -212,6 +212,7 @@ class ArticlesController
 		if (!$article) {
 			return response(["message" => "Article not found"], Response::HTTP_NOT_FOUND);
 		}
+		$article->author = $this->userModel->findByID($article->authorId);
 		return $article;
 	}
 
