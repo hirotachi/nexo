@@ -3,6 +3,7 @@ import styles from "@modules/SecondaryArticlePreview.module.scss";
 import Link from "next/link";
 import { format } from "date-fns";
 import clsx from "clsx";
+import { defaultImage } from "@utils/constants";
 
 type SecondaryArticlePreviewProps = {
   data: TArticle;
@@ -11,18 +12,18 @@ type SecondaryArticlePreviewProps = {
 };
 const SecondaryArticlePreview = (props: SecondaryArticlePreviewProps) => {
   const { data, hideSection, alignCenter } = props;
-  const { author, id, preview, section, summary, title, created_at, source } =
+  const { author, id, preview, section, summary, title, createdAt, source } =
     data;
   const link = source?.url ?? `/articles/${id}`;
+  const linkProps = {
+    target: source ? "__blank" : "",
+    rel: source ? " noreferrer noopener" : "",
+  };
   return (
     <div className={clsx(styles.preview, alignCenter && styles.alignCenter)}>
       <Link href={link}>
-        <a
-          className={styles.img}
-          target={source ? "__blank" : ""}
-          rel={source ? " noreferrer noopener" : ""}
-        >
-          <img src={preview} alt={title} />
+        <a className={styles.img} {...linkProps}>
+          <img src={preview ?? defaultImage} alt={title} />
         </a>
       </Link>
       <div className={styles.main}>
@@ -32,12 +33,14 @@ const SecondaryArticlePreview = (props: SecondaryArticlePreviewProps) => {
           </Link>
         )}
         <Link href={link}>
-          <a className={styles.title}>{title}</a>
+          <a className={styles.title} {...linkProps}>
+            {title}
+          </a>
         </Link>
         <p className={styles.summary}>{summary}</p>
         <span className={styles.author}>{author.name}</span>
         <span className={styles.date}>
-          {format(new Date(created_at), "M.d.uu")}
+          {format(new Date(createdAt), "M.d.uu")}
         </span>
       </div>
     </div>

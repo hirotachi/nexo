@@ -27,7 +27,7 @@ const MoreLike = (props: MoreLikeProps) => {
                   </Link>
                   <p className={styles.author}>{article.author.name}</p>
                   <p className={styles.date}>
-                    {format(new Date(article.created_at), "MM.d.uu")}
+                    {format(new Date(article.createdAt), "MM.d.uu")}
                   </p>
                 </div>
               </div>

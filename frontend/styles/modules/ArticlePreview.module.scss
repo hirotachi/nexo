@@ -12,8 +12,9 @@
     position: relative;
     @include tablet {
       height: 23rem;
-      flex: unset;
       width: 100%;
+      display: inline-block;
+      flex: unset;
     }
 
     img {
@@ -121,6 +122,8 @@
   flex-direction: row-reverse;
   @include tablet {
     flex-direction: row;
+    display: grid;
+    grid-template-columns: 50% 1fr;
     padding: 3rem 0;
   }
   .img {

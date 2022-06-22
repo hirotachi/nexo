@@ -55,7 +55,7 @@ export const userData: TUser = {
 export const articleData: TArticle = {
   author: userData,
   content: "article content",
-  created_at: new Date().toLocaleDateString(),
+  createdAt: new Date().toLocaleDateString(),
   id: 0,
   section: { id: 0, name: "news" },
   summary:

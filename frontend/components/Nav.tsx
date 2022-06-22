@@ -21,7 +21,9 @@ const Nav = () => {
             <a>Create an account</a>
           </Link>
         </div>
-        {/*<span className={styles.lang}>+ english</span>*/}
+        <Link href={"/articles/create"}>
+          <a className={styles.lang}>create article</a>
+        </Link>
       </div>
       <div className={styles.main}>
         <MobileNav />

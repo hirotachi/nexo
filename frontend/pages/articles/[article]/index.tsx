@@ -10,7 +10,7 @@ const Article = () => {
   const {
     author,
     content,
-    created_at,
+    createdAt,
     id,
     preview,
     section,
@@ -49,7 +49,7 @@ const Article = () => {
         <div className={styles.content}>
           <div className={styles.info}>
             <span className={styles.date}>
-              {format(new Date(created_at), "LLLL d, yyyy H:mmaaa")}
+              {format(new Date(createdAt), "LLLL d, yyyy H:mmaaa")}
             </span>
             <div className={styles.socials}>socials</div>
           </div>

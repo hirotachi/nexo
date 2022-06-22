@@ -94,7 +94,8 @@
       font-weight: 500;
       font-family: $secondary-fonts;
       @include desktop {
-        display: inline-block;
+        @include maxLines(5);
+        max-height: 14rem;
         color: $bg-color;
       }
     }

@@ -1,26 +1,36 @@
 import React from "react";
 import styles from "@modules/ArticleMainPreview.module.scss";
-import { articleData } from "@utils/data";
 import Link from "next/link";
+import { defaultImage } from "@utils/constants";
 
-const ArticleMainPreview = () => {
+type ArticleMainPreviewProps = {
+  data: TArticle;
+};
+
+const ArticleMainPreview = (props: ArticleMainPreviewProps) => {
   const {
     author,
     content,
-    created_at,
+    createdAt,
     id,
     preview,
     section,
     summary,
     topics,
+    source,
     title,
-  } = articleData;
-  const link = `/articles/${id}`;
+  } = props.data;
+  const link = source?.url ?? `/articles/${id}`;
+  const linkProps = {
+    target: source ? "__blank" : "",
+    rel: source ? " noreferrer noopener" : "",
+  };
+
   return (
     <div className={styles.preview}>
       <Link href={link}>
-        <a className={styles.img}>
-          <img src={preview} alt={title} />
+        <a className={styles.img} {...linkProps}>
+          <img src={preview ?? defaultImage} alt={title} />
         </a>
       </Link>
       <div className={styles.content}>
@@ -29,7 +39,9 @@ const ArticleMainPreview = () => {
             <a className={styles.section}>{section.name}</a>
           </Link>
           <Link href={link}>
-            <a className={styles.title}>{title}</a>
+            <a className={styles.title} {...linkProps}>
+              {title}
+            </a>
           </Link>
           <span className={styles.author}>{author.name}</span>
         </div>
