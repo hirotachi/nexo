@@ -1,6 +1,7 @@
 <?php
 
 
+use App\controllers\AdminController;
 use App\controllers\ArticlesController;
 use App\controllers\AuthController;
 use App\controllers\SectionsController;
@@ -22,15 +23,26 @@ Route::put("/role", [AuthController::class, "changeRole"])->middleware("auth");
 Route::put("/password", [AuthController::class, "changePassword"])->middleware("auth");
 
 // articles crud -----------------------------------------------------
-
-Route::post("/articles", [ArticlesController::class, "create"])->middleware(["auth", "contributor"]);
-Route::get("/articles", [ArticlesController::class, "all"]);
-Route::get("/articles/{id}", [ArticlesController::class, "findByID"]);
-Route::put("/articles/{id}", [ArticlesController::class, "update"])->middleware(["auth", "contributor"]);
-Route::delete("/articles/{id}", [ArticlesController::class, "delete"])->middleware("auth");
+Route::group("/articles", function () {
+	Route::post("/", [ArticlesController::class, "create"])->middleware(["auth", "contributor"]);
+	Route::get("/", [ArticlesController::class, "all"]);
+	Route::get("/{id}", [ArticlesController::class, "findByID"]);
+	Route::put("/{id}", [ArticlesController::class, "update"])->middleware(["auth", "contributor"]);
+	Route::delete("/{id}", [ArticlesController::class, "delete"])->middleware("auth");
+});
 
 // sections crud -----------------------------------------------------
-Route::get("/sections", [SectionsController::class, "all"]);
-Route::post("/sections", [SectionsController::class, "create"])->middleware(["auth", "admin"]);
-Route::put("/sections/{id}", [SectionsController::class, "update"])->middleware(["auth", "admin"]);
-Route::delete("/sections/{id}", [SectionsController::class, "delete"])->middleware(["auth", "admin"]);
+Route::group("/sections", function () {
+	Route::get("/", [SectionsController::class, "all"]);
+	Route::post("/", [SectionsController::class, "create"])->middleware(["auth", "admin"]);
+	Route::put("/{id}", [SectionsController::class, "update"])->middleware(["auth", "admin"]);
+	Route::delete("/{id}", [SectionsController::class, "delete"])->middleware(["auth", "admin"]);
+});
+
+
+// admin controls
+Route::group("/admin", function () {
+	Route::get("/users", [AdminController::class, "allUsers"])->middleware("admin");
+	Route::delete("/users/{id}", [AdminController::class, "removeUser"])->middleware("admin");
+	Route::delete("/users/", [AdminController::class, "removeManyUsers"])->middleware("admin");
+});

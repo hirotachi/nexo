@@ -121,6 +121,12 @@ abstract class Model
 		return !$statement->execute($values);
 	}
 
+	public function deleteManyByField(string $field, array $values): bool
+	{
+		$placeholders = implode(",", $this->getPlaceholders($values));
+		return $this->delete("$field in ($placeholders)", $values);
+	}
+
 	public function findAll(
 		$filter = "",
 		$placeholderValues = [],
@@ -145,7 +151,7 @@ abstract class Model
 		return !$f->execute($placeholderValues) ? false : $f->fetchAll(PDO::FETCH_OBJ);
 	}
 
-	public function count(string $filter, array $placeholderValues)
+	public function count(string $filter = "", array $placeholderValues = [])
 	{
 		$f = $this->connection->prepare("select count(*) from $this->table $filter");
 		$f->execute($placeholderValues);
