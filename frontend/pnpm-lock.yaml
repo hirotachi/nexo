@@ -18,6 +18,7 @@ specifiers:
   add: ^2.0.6
   axios: ^0.27.2
   clsx: ^1.1.1
+  cookiejs: ^2.1.1
   date-fns: ^2.28.0
   eslint: 8.15.0
   eslint-config-next: 12.1.6
@@ -44,6 +45,7 @@ dependencies:
   add: 2.0.6
   axios: 0.27.2
   clsx: 1.1.1
+  cookiejs: 2.1.1
   date-fns: 2.28.0
   next: 12.1.6_achxnsjje7b5gy3iikucscdeta
   react: 18.1.0
@@ -3220,6 +3222,10 @@ packages:
     dependencies:
       safe-buffer: 5.1.2
     dev: true
+
+  /cookiejs/2.1.1:
+    resolution: {integrity: sha512-Y5JFyu5hVYIePojbDgssTZKBapTOlsm/FlJOcroD9yV9gByjZA70U52yZVdlSSy64UEUqvzsEHNnOIVuzxDZsw==}
+    dev: false
 
   /core-js-compat/3.22.5:
     resolution: {integrity: sha512-rEF75n3QtInrYICvJjrAgV03HwKiYvtKHdPtaba1KucG+cNZ4NJnH9isqt979e67KZlhpbCOTwnsvnIr+CVeOg==}

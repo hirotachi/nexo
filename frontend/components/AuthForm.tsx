@@ -5,6 +5,11 @@ import useYupValidation from "@hooks/useYupValidation";
 import useForm from "@hooks/useForm";
 import Link from "next/link";
 import clsx from "clsx";
+import axios from "axios";
+import { API_URL } from "@utils/constants";
+import { setupAuthToken } from "@utils/helpers";
+import useAuth from "@hooks/useAuth";
+import { useRouter } from "next/router";
 
 export type FormConfig<T extends Record<string, any>> = {
   [P in keyof T]: {
@@ -60,11 +65,22 @@ const AuthForm = <T,>(props: AuthFormProps<T>) => {
     );
   });
   const [state, updateField, { addTouched }] = useForm(values);
+  const { login } = useAuth();
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!(await validate(state))) return;
-    console.log(state);
+    const res = await axios.post<TAuthResponse>(
+      API_URL + props.submit.link,
+      state
+    );
+    if (res.data?.token) {
+      setupAuthToken(res.data?.token);
+      login().then(() => {
+        router.push("/");
+      });
+    }
   };
 
   return (

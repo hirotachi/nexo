@@ -50,7 +50,7 @@ type TUser = {
   email: string;
   description: string;
   socials: string[];
-  role: "user" | "contributor";
+  role: "user" | "contributor" | "admin";
 };
 
 type TUserPreview = Pick<TUser, "id" | "name" | "avatar">;
@@ -69,10 +69,7 @@ type TLoginInput = {
 
 type TAuthResponse = {
   message: string;
-  access_token: string;
-  token_type: "Bearer ";
-  user?: TUserPreview;
-  role?: TUser["role"];
+  token?: string;
   errors: { [P in TRegisterInput]: string[] };
 };
 

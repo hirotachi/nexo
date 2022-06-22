@@ -3,6 +3,7 @@ import "@styles/styles.scss";
 import Layout from "@components/Layout";
 import { SWRConfig } from "swr";
 import { API_URL } from "@utils/constants";
+import AuthProvider from "@components/AuthProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -12,9 +13,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           fetch(API_URL + resource, init).then((res) => res.json()),
       }}
     >
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <AuthProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </AuthProvider>
     </SWRConfig>
   );
 }

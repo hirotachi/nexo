@@ -1,4 +1,5 @@
-import { createContext, useContext } from "react";
+import { useContext } from "react";
+import { AuthContext } from "@components/AuthProvider";
 
 type TAuthData = {
   user: TUserPreview;
@@ -11,14 +12,13 @@ type TAuthState = {
 } & TAuthData;
 
 type TAuthContext = {
-  login: (data: TAuthResponse) => void;
-  logout: () => void;
+  login: () => Promise<any>;
   setAuthState: (state: TAuthState) => void;
 } & TAuthState;
 
-export const AuthContext = createContext<TAuthContext>(
-  null as unknown as TAuthContext
-);
+// export const AuthContext = createContext<TAuthContext>(
+//   null as unknown as TAuthContext
+// );
 
 function useAuth() {
   return useContext(AuthContext);

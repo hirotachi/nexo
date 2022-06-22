@@ -188,15 +188,16 @@ class ArticlesController
 			}
 		}
 
-
-		$authors = $this->userModel->findAllIn("id", array_keys($authorIdMapById));
-		foreach ($authors as $author) {
-			unset($author->password);
-			$authorIdMapById[$author->id] = $author;
-		}
-		foreach ($articlesMapById as $article) {
-			if ($article) {
-				$article->author = $authorIdMapById[$article->authorId];
+		if (count($authorIdMapById) > 0) {
+			$authors = $this->userModel->findAllIn("id", array_keys($authorIdMapById));
+			foreach ($authors as $author) {
+				unset($author->password);
+				$authorIdMapById[$author->id] = $author;
+			}
+			foreach ($articlesMapById as $article) {
+				if ($article) {
+					$article->author = $authorIdMapById[$article->authorId];
+				}
 			}
 		}
 		return [

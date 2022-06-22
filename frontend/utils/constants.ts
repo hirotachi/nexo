@@ -48,3 +48,5 @@ export const pageSize = 10;
 
 export const defaultImage =
   "https://images.unsplash.com/photo-1623039405147-547794f92e9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=826&q=80";
+
+export const externalURL = `http://api.mediastack.com/v1/news?access_key=${MEDIA_STACK_API_KEY}&languages=${NEWS_LANGUAGE}&limit=${pageSize}`;

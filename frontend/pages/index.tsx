@@ -3,7 +3,6 @@ import { GetStaticProps } from "next";
 import styles from "@modules/Home.module.scss";
 import ArticleMainPreview from "@components/ArticleMainPreview";
 import ArticlePreview from "@components/ArticlePreview";
-import { articleData } from "@utils/data";
 import SecondaryArticlePreview from "@components/SecondaryArticlePreview";
 import axios from "axios";
 import {
@@ -13,7 +12,7 @@ import {
   pageSize,
 } from "@utils/constants";
 import useSWR from "swr";
-import { arrayOf } from "@utils/helpers";
+import { convertToArticleData } from "@utils/helpers";
 
 const externalURL = `http://api.mediastack.com/v1/news?access_key=${MEDIA_STACK_API_KEY}&languages=${NEWS_LANGUAGE}&limit=${pageSize}`;
 
@@ -31,27 +30,8 @@ const Home = (props) => {
   const externalArticles = useMemo<Partial<TArticle>[]>(() => {
     const externalData = external.data?.data;
     if (!externalData) return [];
-    return externalData.map((d: TExternalArticle) => {
-      return {
-        section: {
-          name: d.category,
-        },
-        summary: d.description,
-        preview: d.image,
-        source: {
-          name: d.source,
-          url: d.url,
-        },
-        createdAt: d.published_at,
-        title: d.title,
-        topics: [],
-        author: {
-          name: d.author,
-        },
-      };
-    });
-  }, []);
-  console.log(externalArticles);
+    return externalData.map(convertToArticleData);
+  }, [external.data.data]);
   return (
     <div className={styles.home}>
       <div className={styles.intro}>
@@ -80,22 +60,23 @@ const Home = (props) => {
         </h2>
         <div className={styles.container}>
           <div className={styles.list}>
-            {[...internal.data.articles, ...arrayOf(3, articleData)].map(
-              (d) => {
-                return (
-                  <ArticlePreview
-                    key={d.id}
-                    align={"horizontal"}
-                    data={d}
-                    isHome
-                  />
-                );
-              }
-            )}
+            {[
+              ...internal.data?.articles?.slice(0, 4),
+              ...externalArticles.slice(5, 9),
+            ].map((d) => {
+              return (
+                <ArticlePreview
+                  key={d.id}
+                  align={"horizontal"}
+                  data={d}
+                  isHome
+                />
+              );
+            })}
           </div>
         </div>
       </div>
-      <SecondaryArticlePreview data={articleData} />
+      <SecondaryArticlePreview data={externalArticles[9]} />
       <button className={styles.load}>load more</button>
     </div>
   );

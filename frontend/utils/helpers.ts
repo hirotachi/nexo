@@ -1,4 +1,5 @@
 import { SocialLinks } from "social-links";
+import cookie from "cookiejs";
 
 export function pick<T>(obj: T, keys: (keyof T)[]): Partial<T> {
   return keys.reduce((acc, key) => {
@@ -36,4 +37,28 @@ const socialLinks = new SocialLinks();
 export function socialInfo(link: string) {
   const siteName = getSiteName(link);
   return { siteName, profileId: socialLinks.getProfileId(siteName, link) };
+}
+
+export function convertToArticleData(d: TExternalArticle) {
+  return {
+    section: {
+      name: d.category,
+    },
+    summary: d.description,
+    preview: d.image,
+    source: {
+      name: d.source,
+      url: d.url,
+    },
+    createdAt: d.published_at,
+    title: d.title,
+    topics: [],
+    author: {
+      name: d.author,
+    },
+  };
+}
+
+export function setupAuthToken(token: string) {
+  cookie.set("access_token", token, { expires: 30 });
 }
