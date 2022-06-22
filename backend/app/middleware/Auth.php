@@ -19,18 +19,18 @@ class Auth implements Middleware
 		return self::$user;
 	}
 
-    public function handle(Request $request, callable $next)
-    {
-        verifyAuthToken($request);
-        $userId = $request->attributes->get("userId");
-	    $userModel = new User();
+	public function handle(Request $request, callable $next)
+	{
+		verifyAuthToken($request);
+		$userId = $request->attributes->get("userId");
+		$userModel = new User();
 
-	    $user = $userModel->findByID($userId);
+		$user = $userModel->findByID($userId);
 
-        if (!$user) {
-            return response(["error" => "Valid access_token in cookies"], Response::HTTP_UNAUTHORIZED);
-        }
-		self::$user=$user;
-        return $next();
-    }
+		if (!$user) {
+			return response(["error" => "required token"], Response::HTTP_UNAUTHORIZED);
+		}
+		self::$user = $user;
+		return $next();
+	}
 }
