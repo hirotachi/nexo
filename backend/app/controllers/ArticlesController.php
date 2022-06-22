@@ -8,6 +8,7 @@ use App\models\Article;
 use App\models\ArticleTopic;
 use App\models\Section;
 use App\models\Topic;
+use App\models\User;
 use Symfony\Component\HttpFoundation\Response;
 
 class ArticlesController
@@ -17,17 +18,21 @@ class ArticlesController
 	protected Topic $topicModel;
 	private ArticleTopic $articleTopicModel;
 	private Section $sectionModel;
+	private User $userModel;
 
 	public function __construct(
 		Article $articleModel,
 		Topic $topicModel,
 		ArticleTopic $articleTopicModel,
-		Section $sectionModel
+		Section $sectionModel,
+		User $userModel
+
 	) {
 		$this->articleModel = $articleModel;
 		$this->topicModel = $topicModel;
 		$this->articleTopicModel = $articleTopicModel;
 		$this->sectionModel = $sectionModel;
+		$this->userModel = $userModel;
 	}
 
 	public function create(Request $request)
@@ -133,28 +138,37 @@ class ArticlesController
 		if ($str) {
 			$str = "where ".$str;
 		}
+
 		$articles = $this->articleModel->findAll($str, $placeholders, limit: $limit, offset: ($page - 1) * $limit);
+
+		$articlesIds = [];
+		$articlesMapById = [];
+		$authorIdMapById = [];
+		$sectionMapById = [];
+
+		$sections = $this->sectionModel->findAll();
+
+		foreach ($sections as $section) {
+			$sectionMapById[$section->id] = $section;
+		}
+
+		foreach ($articles as $article) {
+			$article->section = $sectionMapById[$article->sectionId];
+			$articlesIds[] = $article->id;
+			$articlesMapById[$article->id] = $article;
+			$articlesMapById[$article->id]->topics = [];
+			$authorIdMapById[$article->authorId] = null;
+			unset($article->sectionId);
+		}
+
+
 		$pagination = [
 			"page" => $page,
-			"perPage" => $limit,
+			"count" => $limit,
 			"total" => $this->articleModel->count($str, $placeholders)
 		];
 		if (count($articles) > 0) {
-			$sections = $this->sectionModel->findAll();
-			$sectionMapById = [];
 
-			foreach ($sections as $section) {
-				$sectionMapById[$section->id] = $section;
-			}
-			$articlesIds = [];
-			$articlesMapById = [];
-			foreach ($articles as $article) {
-				$article->section = $sectionMapById[$article->sectionId];
-				$articlesIds[] = $article->id;
-				$articlesMapById[$article->id] = $article;
-				$articlesMapById[$article->id]->topics = [];
-				unset($article->sectionId);
-			}
 
 			$articlesTopics = $this->articleTopicModel->findAllIn("articleId", $articlesIds);
 			if (count($articlesTopics) > 0) {
@@ -175,8 +189,18 @@ class ArticlesController
 		}
 
 
+		$authors = $this->userModel->findAllIn("id", array_keys($authorIdMapById));
+		foreach ($authors as $author) {
+			unset($author->password);
+			$authorIdMapById[$author->id] = $author;
+		}
+		foreach ($articlesMapById as $article) {
+			if ($article) {
+				$article->author = $authorIdMapById[$article->authorId];
+			}
+		}
 		return [
-			"articles" => $articles,
+			"articles" => array_values($articlesMapById),
 			"pagination" => $pagination,
 		];
 	}
