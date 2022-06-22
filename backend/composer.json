@@ -1,5 +1,6 @@
 {
   "require": {
+    "propel/propel": "~2.0@dev",
     "ext-pdo": "*",
     "firebase/php-jwt": "^6.1",
     "jenssegers/blade": "^1.4",
