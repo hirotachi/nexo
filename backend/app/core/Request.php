@@ -2,7 +2,10 @@
 
 namespace App\Core;
 
+use App\models\Model;
+use Rakit\Validation\Validator;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
+use App\Validators\UniqueRule;
 
 class Request extends SymfonyRequest
 {
@@ -36,4 +39,19 @@ class Request extends SymfonyRequest
     {
         return $this->headers->get("referer");
     }
+
+	public function verify(array $schema)
+	{
+		$body = $this->getBody();
+		$validator = new Validator();
+		$validator->addValidator('unique', new UniqueRule(Model::$pdo));
+
+
+		$validation = $validator->make($body, $schema);
+		$validation->validate();
+		if($validation->fails()){
+			jd($validation->errors()->firstOfAll());
+		}
+		return $validation->getValidData();
+	}
 }

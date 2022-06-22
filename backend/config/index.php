@@ -17,7 +17,6 @@ function config(): object
             'charset' => 'utf8mb4',
         ],
         "jwtSecret" => loadEnv("JWT_SECRET", ""),
-        "adminKey" => loadEnv("ADMIN_KEY", "")
     ];
     return (object) $_CONFIG;
 }

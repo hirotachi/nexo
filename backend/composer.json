@@ -1,11 +1,12 @@
 {
   "require": {
-    "propel/propel": "~2.0@dev",
     "ext-pdo": "*",
     "firebase/php-jwt": "^6.1",
     "jenssegers/blade": "^1.4",
     "miladrahimi/php-jwt": "2.*",
     "paragonie/sodium_compat": "^1.17",
+    "propel/propel": "~2.0@dev",
+    "rakit/validation": "^1.4",
     "symfony/http-foundation": "^6.0",
     "vlucas/phpdotenv": "^5.4"
   },

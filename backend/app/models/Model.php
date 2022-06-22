@@ -9,6 +9,7 @@ use PDOException;
 
 abstract class Model
 {
+	static public PDO $pdo;
     protected PDO $connection;
     protected array $required = [];
     protected array $defaults = [];
@@ -21,6 +22,7 @@ abstract class Model
         extract(get_object_vars(config()->db));
         try {
             $this->connection = new PDO("$this->driver:dbname=$database;host=$host:$port", $username, $password);
+			self::$pdo = $this->connection;
         } catch (PDOException $e) {
             die("Database connection error: ".$e->getMessage());
         }
@@ -29,7 +31,7 @@ abstract class Model
     /**
      * @throws VerificationException
      */
-    public function create($data): bool|string
+    public function create($data): bool|object
     {
         $data = [...$this->getDefaults(), ...$data];
 
@@ -41,7 +43,7 @@ abstract class Model
         $placeholders = implode(",", $this->getNamedPlaceholders($data));
         $columns = implode(",", array_keys($data));
         $statement = $this->connection->prepare("insert into $this->table ($columns) values ($placeholders)");
-        return !$statement->execute($data) ? false : $this->connection->lastInsertId();
+        return !$statement->execute($data) ? false : $this->findByID($this->connection->lastInsertId());
     }
 
     public function updateByID($id, $updates): bool

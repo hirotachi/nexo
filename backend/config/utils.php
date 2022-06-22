@@ -9,7 +9,7 @@ use Firebase\JWT\Key;
 use Symfony\Component\HttpFoundation\Response;
 
 
-function redirect(string $path = "")
+function redirect(string $path = ""): \Symfony\Component\HttpFoundation\RedirectResponse|RedirectResponse
 {
     $redirectResponse = new RedirectResponse($path === "" ? "/" : $path);
     return $path === "" ? $redirectResponse : $redirectResponse->getResponse();
@@ -64,7 +64,6 @@ function generateToken(object $user): string
 {
     $payload = [
         "userId" => $user->id,
-        "key" => $user->authKey,
         "iat" => (new DateTime())->getTimestamp()
     ];
     return JWT::encode($payload, config()->jwtSecret, 'HS256');
@@ -73,15 +72,13 @@ function generateToken(object $user): string
 
 function verifyAuthToken(Request $req)
 {
-    $authToken = $req->headers->get("authorization");
+	$authToken = $req->cookies->get("access_token");
     if (!$authToken) {
         return;
     }
-    $arr = preg_split("/\s+/", $authToken);
-    $token = $arr[1];
+    $token = $authToken;
     try {
         $payload = JWT::decode($token, new Key(config()->jwtSecret, "HS256"));
-        $req->attributes->set("key", $payload->key);
         $req->attributes->set("userId", (int) $payload->userId);
     } catch (Exception $e) {
     }
