@@ -114,4 +114,17 @@ class AuthController
 		return ["message" => "success"];
 
 	}
+
+	public function changeAvatar(Request $request)
+	{
+		$validated = $request->verify([
+			"avatar" => "string"
+		]);
+		$user = Auth::user();
+		$updated = $this->userModel->updateByID($user->id, ["avatar" => $validated["avatar"]]);
+		if (!$updated) {
+			return response(["error" => "avatar not updated try again"], Response::HTTP_INTERNAL_SERVER_ERROR);
+		}
+		return ["message" => "success"];
+	}
 }

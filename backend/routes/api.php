@@ -21,6 +21,7 @@ Route::get("/me", [AuthController::class, "me"])->middleware("auth");
 Route::put("/account", [AuthController::class, "updateAccount"])->middleware("auth");
 Route::put("/role", [AuthController::class, "changeRole"])->middleware("auth");
 Route::put("/password", [AuthController::class, "changePassword"])->middleware("auth");
+Route::put("/avatar", [AuthController::class, "changeAvatar"])->middleware("auth");
 
 // articles crud -----------------------------------------------------
 Route::group("/articles", function () {
@@ -45,4 +46,5 @@ Route::group("/admin", function () {
 	Route::get("/users", [AdminController::class, "allUsers"])->middleware("admin");
 	Route::delete("/users/{id}", [AdminController::class, "removeUser"])->middleware("admin");
 	Route::delete("/users/", [AdminController::class, "removeManyUsers"])->middleware("admin");
+	Route::get("/users/{id}", [AdminController::class, "getUser"])->middleware("admin");
 });

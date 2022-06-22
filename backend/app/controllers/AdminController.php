@@ -58,4 +58,14 @@ class AdminController
 		}
 		$this->userModel->deleteManyByField("id", $userIds);
 	}
+
+	public function getUser(Request $request)
+	{
+		$userId = $request->attributes->get("id");
+		$user = $this->userModel->findByID($userId);
+		if (!$user) {
+			return \response(["error" => "user not found"], Response::HTTP_NOT_FOUND);
+		}
+		return $user;
+	}
 }
