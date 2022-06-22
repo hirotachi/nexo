@@ -18,7 +18,16 @@ export const socialIcons = {
   other: faLink,
 };
 
-export const routes = ["home", "news", "food", "tech", "world news", "sports"];
+export const routes = [
+  "home",
+  "general",
+  "business",
+  "entertainment",
+  "health",
+  "science",
+  "sports",
+  "technology",
+];
 
 export const socials = [
   "https://www.facebook.com/vice",
@@ -29,3 +38,10 @@ export const socials = [
   "https://www.youtube.com/user/vice",
   "https://www.pinterest.com/vicemag",
 ];
+
+export const NEWS_API_KEY = process.env.NEXT_PUBLIC_NEWS_API_KEY;
+export const MEDIA_STACK_API_KEY = process.env.NEXT_PUBLIC_MEDIA_STACK_API_KEY;
+export const API_URL = process.env.NEXT_PUBLIC_API_URL;
+export const NEWS_LANGUAGE = "en";
+
+export const pageSize = 10;

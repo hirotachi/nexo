@@ -76,3 +76,9 @@
     }
   }
 }
+
+.alignCenter {
+  @include desktop {
+    align-items: center;
+  }
+}

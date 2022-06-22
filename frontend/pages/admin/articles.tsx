@@ -48,20 +48,16 @@ const AdminSection = () => {
       case "actions":
         return (
           <div className={styles.actions}>
-            <span
-              className={styles.info}
-              title={"info"}
-              onClick={() => handleAction(article, "view")}
-            >
-              <FontAwesomeIcon icon={faInfo} />
-            </span>
-            <span
-              className={styles.edit}
-              title={"edit"}
-              onClick={() => handleAction(article, "edit")}
-            >
-              <FontAwesomeIcon icon={faPencil} />
-            </span>
+            <Link href={`/articles/${article.id}`}>
+              <a className={styles.info} title={"info"}>
+                <FontAwesomeIcon icon={faInfo} />
+              </a>
+            </Link>
+            <Link href={`/articles/${article.id}/edit`}>
+              <a className={styles.edit} title={"edit"}>
+                <FontAwesomeIcon icon={faPencil} />
+              </a>
+            </Link>
             <span
               className={styles.remove}
               title={"remove"}

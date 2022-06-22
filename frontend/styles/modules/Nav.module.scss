@@ -11,13 +11,16 @@ $border: 1.5px solid $primary-border-color;
   color: $typo-color;
 
   .sub {
-    display: flex;
+    display: none;
     justify-content: space-between;
     @include normalizePadding(1rem);
     align-items: center;
     border-bottom: 1px solid $secondary-border-color;
     font-size: 1.1rem;
     text-transform: uppercase;
+    @include tablet {
+      display: flex;
+    }
 
     .auth {
       display: none;
@@ -48,14 +51,17 @@ $border: 1.5px solid $primary-border-color;
     }
 
     .logo {
-      width: 6rem;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+      display: inline-block;
       @include tablet {
         position: static;
         transform: none;
+      }
+      svg {
+        width: 6rem;
       }
     }
 
@@ -88,7 +94,7 @@ $border: 1.5px solid $primary-border-color;
         }
 
         @include tablet {
-          font-size: 1.4rem;
+          font-size: 1.2rem;
         }
         @include desktop {
           font-size: 1.6rem;
@@ -100,10 +106,10 @@ $border: 1.5px solid $primary-border-color;
       display: none;
       font-size: 2rem;
       @include tablet {
-        display: flex;
         gap: 1.5rem;
       }
       @include desktop {
+        display: flex;
         gap: 2rem;
       }
 
@@ -116,9 +122,16 @@ $border: 1.5px solid $primary-border-color;
         }
       }
     }
+    .search {
+      margin-left: auto;
+      margin-right: 1rem;
+      @include opacityHover;
+      @include tablet {
+        margin-left: 0;
+      }
+    }
     .login {
       font-size: 1.6rem;
-      margin-left: auto;
       @include tablet {
         display: none;
       }

@@ -39,57 +39,6 @@
     }
   }
 
-  .other {
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    @include tablet {
-      margin-top: 5rem;
-    }
-
-    .header {
-      grid-column: 1 / -1;
-      text-transform: uppercase;
-      background-color: white;
-      font-size: 4rem;
-      @include normalizePadding();
-      display: flex;
-      flex-direction: column;
-      @include tablet {
-        font-size: 5rem;
-      }
-      @include desktop {
-        font-size: 6rem;
-      }
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid $tertiary-border-color;
-      border-left: none;
-      border-right: none;
-      @include tablet {
-        flex-direction: row;
-      }
-      .list {
-        gap: 1px;
-        display: grid;
-
-        background-color: $tertiary-border-color;
-        @include tablet {
-          grid-template-columns: 1fr;
-          border-right: 1px solid $tertiary-border-color;
-          width: 70%;
-        }
-        @include desktop {
-          width: 60%;
-        }
-      }
-    }
-  }
-
   .load {
     color: $bg-color;
     text-align: center;
@@ -110,6 +59,56 @@
     @include desktop {
       font-size: 3.5rem;
       margin: 3rem;
+    }
+  }
+}
+.other {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  @include tablet {
+    margin-top: 5rem;
+  }
+
+  .header {
+    grid-column: 1 / -1;
+    text-transform: uppercase;
+    background-color: white;
+    font-size: 4rem;
+    @include normalizePadding();
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      font-size: 5rem;
+    }
+    @include desktop {
+      font-size: 6rem;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $tertiary-border-color;
+    border-left: none;
+    border-right: none;
+    @include tablet {
+      flex-direction: row;
+    }
+    .list {
+      gap: 1px;
+      display: grid;
+
+      background-color: $tertiary-border-color;
+      @include tablet {
+        grid-template-columns: 1fr;
+        border-right: 1px solid $tertiary-border-color;
+        width: 70%;
+      }
+      @include desktop {
+        width: 60%;
+      }
     }
   }
 }

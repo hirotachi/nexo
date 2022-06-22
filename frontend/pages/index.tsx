@@ -1,11 +1,13 @@
 import React from "react";
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import styles from "@modules/Home.module.scss";
 import ArticleMainPreview from "@components/ArticleMainPreview";
 import ArticlePreview from "@components/ArticlePreview";
 import { arrayOf } from "@utils/helpers";
 import { articleData } from "@utils/data";
 import SecondaryArticlePreview from "@components/SecondaryArticlePreview";
+import axios from "axios";
+import { MEDIA_STACK_API_KEY, NEWS_LANGUAGE, pageSize } from "@utils/constants";
 
 const Home: NextPage = () => {
   return (
@@ -56,3 +58,14 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const test = await axios.get(
+    `http://api.mediastack.com/v1/news?access_key=${MEDIA_STACK_API_KEY}&languages=${NEWS_LANGUAGE}&limit=${pageSize}`
+  );
+  console.log(test.data);
+  return {
+    props: {},
+    revalidate: 10,
+  };
+};

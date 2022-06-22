@@ -32,16 +32,16 @@ const Footer = () => {
         <p className={styles.text}>
           Global reporting on everything that matters in your inbox.
         </p>
-        <form onSubmit={onSubmit} className={styles.form}>
-          <input type="email" placeholder={"your email address"} />
-          <button className={styles.btn}>subscribe</button>
-        </form>
+        {/*<form onSubmit={onSubmit} className={styles.form}>*/}
+        {/*  <input type="email" placeholder={"your email address"} />*/}
+        {/*  <button className={styles.btn}>subscribe</button>*/}
+        {/*</form>*/}
       </div>
-      <p className={styles.disclaimer}>
-        By signing up to the newsletter you agree to our receive electronic
-        communications from NEXO that may sometimes include advertisements or
-        sponsored content.
-      </p>
+      {/*<p className={styles.disclaimer}>*/}
+      {/*  By signing up to the newsletter you agree to our receive electronic*/}
+      {/*  communications from NEXO that may sometimes include advertisements or*/}
+      {/*  sponsored content.*/}
+      {/*</p>*/}
       <div className={styles.more}>
         <div className={styles.socials}>
           {socials.map((social, index) => {

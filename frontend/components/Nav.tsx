@@ -7,6 +7,7 @@ import MobileNav from "@components/MobileNav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import faUser from "@icons/solid/faUser";
 import { getSiteName } from "@utils/helpers";
+import faSearch from "@icons/regular/faSearch";
 
 const Nav = () => {
   return (
@@ -20,7 +21,7 @@ const Nav = () => {
             <a>Create an account</a>
           </Link>
         </div>
-        <span className={styles.lang}>+ english</span>
+        {/*<span className={styles.lang}>+ english</span>*/}
       </div>
       <div className={styles.main}>
         <MobileNav />
@@ -41,6 +42,11 @@ const Nav = () => {
             );
           })}
         </div>
+        <Link href={"/search"}>
+          <a className={styles.search}>
+            <FontAwesomeIcon icon={faSearch} />
+          </a>
+        </Link>
         <div className={styles.socials}>
           {socials.slice(0, 3).map((social) => {
             const icon = socialIcons[getSiteName(social)] ?? socialIcons.other;
@@ -57,6 +63,7 @@ const Nav = () => {
             );
           })}
         </div>
+
         <Link href={"/login"}>
           <a className={styles.login}>
             <FontAwesomeIcon icon={faUser} />

@@ -23,7 +23,7 @@ const MobileNav = () => {
           <div className={styles.links}>
             {routes.map((route, i) => {
               return (
-                <Link href={!i ? "/" : `/${route}`} key={route}>
+                <Link href={!i ? "/" : `/sections/${route}`} key={route}>
                   <a className={styles.link} onClick={toggleMenu}>
                     {route}
                   </a>

@@ -31,6 +31,7 @@ type TArticle = {
   title: string;
   created_at: string;
   summary: string;
+  source?: { name: string; url: string };
   section: {
     id: number;
     name: string;

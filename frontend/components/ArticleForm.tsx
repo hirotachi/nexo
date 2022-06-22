@@ -18,7 +18,7 @@ const CustomTitleDocument = Document.extend({
   content: "heading block*",
 });
 
-type ArticleFormInput = {
+export type ArticleFormInput = {
   title: string;
   topics: string[];
   preview: string;
@@ -108,7 +108,7 @@ const ArticleForm = (props: ArticleFormProps) => {
   const router = useRouter();
   return (
     <div className={styles.form}>
-      <h1 className={styles.heading}>Create Article</h1>
+      <h1 className={styles.heading}>{values ? "Update" : "Create"} Article</h1>
       <div className={clsx(styles.field, styles.required)}>
         <span className={styles.label}>title</span>
         <EditorContent editor={title} className={styles.title} />
