@@ -1,16 +1,21 @@
-import React, { KeyboardEventHandler, useState } from "react";
+import React, { KeyboardEventHandler, useEffect, useState } from "react";
 import styles from "@modules/Search.module.scss";
-import { arrayOf } from "@utils/helpers";
-import { articleData } from "@utils/data";
 import ArticlePreview from "@components/ArticlePreview";
 import useInput from "@hooks/useInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import faSearch from "@icons/solid/faSearch";
 import clsx from "clsx";
 import { useRouter } from "next/router";
+import { api } from "@pages/_app";
+import { externalURL } from "@utils/constants";
+import axios from "axios";
+import { convertToArticleData } from "@utils/helpers";
 
 const Search = () => {
-  const data = arrayOf(6, articleData);
+  // const data = arrayOf(6, articleData);
+  const [external, setExternal] = useState([]);
+  const [internal, setInternal] = useState([]);
+
   const [submitted, setSubmitted] = useState("");
   const [currentSection, setCurrentSection] = useState<"internal" | "external">(
     "internal"
@@ -22,7 +27,25 @@ const Search = () => {
       return;
     }
     setSubmitted(search.value);
-    console.log("submit");
+  };
+  useEffect(() => {
+    if (!submitted) return;
+    api
+      .get(`/articles?query=${submitted}`)
+      .then(({ data }) => {
+        setInternal(data.articles);
+      })
+      .catch(() => {});
+    axios
+      .get(`${externalURL}&keywords=${submitted}`)
+      .then(({ data }) => {
+        setExternal(data.data.map(convertToArticleData));
+      })
+      .catch(() => {});
+  }, [submitted]);
+  const data = {
+    internal,
+    external,
   };
   return (
     <div className={styles.search}>
@@ -57,10 +80,10 @@ const Search = () => {
           })}
         </div>
       )}
-      {data.length && (
+      {!!data[currentSection].length && (
         <>
           <div className={styles.list}>
-            {data.map((d) => {
+            {data[currentSection]?.map((d) => {
               return <ArticlePreview key={d.id} data={d} isHome />;
             })}
           </div>

@@ -64,10 +64,16 @@
     border: 1px solid $tertiary-border-color;
     border-left: none;
     border-right: none;
+    margin: 0 auto;
     margin-top: 2rem;
+    width: 100%;
     @include tablet {
       grid-template-columns: repeat(3, 1fr);
       margin-top: 4rem;
+      width: 90%;
+    }
+    @include desktop {
+      width: 80%;
     }
   }
 

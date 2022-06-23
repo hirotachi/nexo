@@ -41,6 +41,7 @@ export function socialInfo(link: string) {
 
 export function convertToArticleData(d: TExternalArticle) {
   return {
+    id: d.id ?? genId(),
     section: {
       name: d.category,
     },
@@ -61,4 +62,10 @@ export function convertToArticleData(d: TExternalArticle) {
 
 export function setupAuthToken(token: string) {
   cookie.set("access_token", token, { expires: 30 });
+}
+
+export function genId() {
+  return (
+    Math.random().toString(36).slice(2) + new Date().getTime().toString(36)
+  );
 }
