@@ -5,6 +5,8 @@ import { SWRConfig } from "swr";
 import { API_URL } from "@utils/constants";
 import AuthProvider from "@components/AuthProvider";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const api = axios.create({
   baseURL: API_URL,
@@ -20,6 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     >
       <AuthProvider>
         <Layout>
+          <ToastContainer />
           <Component {...pageProps} />
         </Layout>
       </AuthProvider>

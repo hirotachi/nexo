@@ -13,6 +13,7 @@ import { API_URL } from "@utils/constants";
 import axios from "axios";
 import withNoSSR from "@lib/withNoSSR";
 import { api } from "@pages/_app";
+import { toast } from "react-toastify";
 
 const accountValues: Pick<
   TUser,
@@ -48,14 +49,48 @@ const Account = () => {
 
   const handleAccountSubmit: FormEventHandler = (e) => {
     e.preventDefault();
+    const toastId = toast("Updating account...", {
+      type: "loading",
+      autoClose: false,
+      isLoading: true,
+      position: "bottom-right",
+    });
     api.put("/account", accountState).then(({ data }) => {
+      toast.update(toastId, {
+        type: toast.TYPE.SUCCESS,
+        autoClose: 1000,
+        isLoading: false,
+        render: "Account updated successfully",
+      });
       login();
     });
   };
 
   const handlePasswordSubmit: FormEventHandler = (e) => {
     e.preventDefault();
-    api.put("/password", password).then(({ data }) => {});
+    const toastId = toast("Updating password...", {
+      type: "loading",
+      autoClose: false,
+      position: "bottom-right",
+      isLoading: true,
+    });
+    api
+      .put("/password", password)
+      .then(({ data }) => {
+        toast.update(toastId, {
+          type: toast.TYPE.SUCCESS,
+          autoClose: 1000,
+          isLoading: false,
+        });
+      })
+      .catch(() => {
+        toast.update(toastId, {
+          type: toast.TYPE.ERROR,
+          autoClose: 1000,
+          isLoading: false,
+          render: "Password update failed",
+        });
+      });
   };
 
   const labels: {
@@ -73,9 +108,21 @@ const Account = () => {
     content: accountState.description,
   });
   const handleRoleChange = (role) => {
+    const toastId = toast(`attempting to change role to ${role}`, {
+      type: "info",
+      autoClose: false,
+      isLoading: true,
+      position: "bottom-right",
+    });
     axios
       .put(`${API_URL}/role`, { role }, { withCredentials: true })
       .then(({ data }) => {
+        toast.update(toastId, {
+          render: "Success!",
+          type: "success",
+          isLoading: false,
+          autoClose: 1000,
+        });
         login();
       });
   };

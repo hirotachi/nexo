@@ -10,6 +10,7 @@ import { API_URL } from "@utils/constants";
 import { setupAuthToken } from "@utils/helpers";
 import useAuth from "@hooks/useAuth";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 export type FormConfig<T extends Record<string, any>> = {
   [P in keyof T]: {
@@ -71,10 +72,20 @@ const AuthForm = <T,>(props: AuthFormProps<T>) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!(await validate(state))) return;
+    const toastId = toast(`attempting ${submit.text}`, {
+      position: "bottom-right",
+      isLoading: true,
+    });
     const res = await axios.post<TAuthResponse>(
       API_URL + props.submit.link,
       state
     );
+    toast.update(toastId, {
+      render: "Success!",
+      type: "success",
+      isLoading: false,
+      autoClose: 1000,
+    });
     if (res.data?.token) {
       setupAuthToken(res.data?.token);
       login().then(() => {

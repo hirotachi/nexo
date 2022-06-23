@@ -57,7 +57,11 @@
     border-radius: 50%;
     display: none;
     @include tablet {
-      display: unset;
+      display: flex;
+      color: $typo-color;
+      background-color: $bg-color;
+      align-items: center;
+      justify-content: center;
     }
     img {
       @include size(100%);

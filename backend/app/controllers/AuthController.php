@@ -69,7 +69,7 @@ class AuthController
 			"currentPassword" => "required|min:6",
 			"newPassword" => "required|min:6"
 		]);
-		$user = Auth::user();
+		$user = $this->userModel->findByID(Auth::user()->id);
 		if (!password_verify($user->password, $validated["currentPassword"])) {
 			return \response(["error" => "wrong password"], Response::HTTP_UNAUTHORIZED);
 		}

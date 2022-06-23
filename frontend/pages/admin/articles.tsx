@@ -1,4 +1,4 @@
-import React, { KeyboardEventHandler, useState } from "react";
+import React, { KeyboardEventHandler } from "react";
 import styles from "@modules/Admin.module.scss";
 import { arrayOf } from "@utils/helpers";
 import { articleData } from "@utils/data";
@@ -9,8 +9,8 @@ import faPencil from "@icons/regular/faPencil";
 import faTrash from "@icons/regular/faTrash";
 import useInput from "@hooks/useInput";
 import faSearch from "@icons/regular/faSearch";
-import Pagination from "@components/Pagination";
 import Link from "next/link";
+import useAuthGuard from "@hooks/useAuthGuard";
 
 const data: TArticle[] = arrayOf(10, articleData).map((v, i) => ({
   ...v,
@@ -18,6 +18,7 @@ const data: TArticle[] = arrayOf(10, articleData).map((v, i) => ({
 }));
 
 const AdminSection = () => {
+  useAuthGuard(["admin"]);
   const columns: ColumnConfig<keyof TArticle | string>[] = [
     { name: "ID", uid: "id" },
     { name: "TITLE", uid: "title", stretch: true },
@@ -89,7 +90,7 @@ const AdminSection = () => {
     }
     console.log(search.value);
   };
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   return (
     <div className={styles.admin}>
       <h2 className={styles.heading}>Articles Control</h2>
@@ -109,15 +110,15 @@ const AdminSection = () => {
         columns={columns}
         data={data}
         primaryKey={"id"}
-        withSelected
+        // withSelected
       />
-      <Pagination
-        className={styles.pagination}
-        total={10}
-        perPage={2}
-        currentPage={currentPage}
-        onPageChange={(page) => setCurrentPage(page)}
-      />
+      {/*<Pagination*/}
+      {/*  className={styles.pagination}*/}
+      {/*  total={10}*/}
+      {/*  perPage={2}*/}
+      {/*  currentPage={currentPage}*/}
+      {/*  onPageChange={(page) => setCurrentPage(page)}*/}
+      {/*/>*/}
     </div>
   );
 };

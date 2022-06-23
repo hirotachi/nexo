@@ -45,7 +45,7 @@ class UserController
 
 	public function remove(Request $request)
 	{
-		$userId = $request->query->get("id");
+		$userId = $request->attributes->get("id");
 		if (!$userId) {
 			return \response(["error" => "id is required"], Response::HTTP_BAD_REQUEST);
 		}
