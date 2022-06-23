@@ -99,7 +99,7 @@ const Nav = () => {
           })}
         </div>
 
-        <Link href={"/login"}>
+        <Link href={isLoggedIn ? "/account" : "/login"}>
           <a className={styles.login}>
             <FontAwesomeIcon icon={faUser} />
           </a>

@@ -64,7 +64,7 @@ const AuthForm = <T,>(props: AuthFormProps<T>) => {
       }, {})
     );
   });
-  const [state, updateField, { addTouched }] = useForm(values);
+  const [state, updateField, , { addTouched }] = useForm(values);
   const { login } = useAuth();
   const router = useRouter();
 

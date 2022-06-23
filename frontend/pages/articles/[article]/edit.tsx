@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ArticleForm, { ArticleFormInput } from "@components/ArticleForm";
 import { api } from "@pages/_app";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
+import useAuthGuard from "@hooks/useAuthGuard";
+import useAuth from "@hooks/useAuth";
 
 const Edit = (props) => {
   const {
     article: { author, section, ...article },
   } = props;
+  useAuthGuard(["contributor", "admin"]);
+  const { user, role } = useAuth();
+  useEffect(() => {
+    if (user.id !== author.id && role !== "admin") {
+      router.push("/");
+    }
+  }, []);
   const router = useRouter();
   const handleSubmit = (data: ArticleFormInput) => {
     const articleId = router.query.article;
@@ -34,7 +43,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const res = await api.get(`/articles/${article}`);
   return {
     props: {
-      article: res.data,
+      ...res.data,
     },
   };
 };

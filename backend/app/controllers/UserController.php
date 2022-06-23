@@ -4,6 +4,7 @@ namespace App\controllers;
 
 use App\Core\Request;
 use App\models\Article;
+use App\models\Section;
 use App\models\User;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -11,11 +12,13 @@ class UserController
 {
 	private User $userModel;
 	private Article $articleModel;
+	private Section $sectionModel;
 
-	public function __construct(User $userModel, Article $articleModel)
+	public function __construct(User $userModel, Article $articleModel, Section $sectionModel)
 	{
 		$this->userModel = $userModel;
 		$this->articleModel = $articleModel;
+		$this->sectionModel = $sectionModel;
 	}
 
 	public function all(Request $request)
@@ -86,6 +89,22 @@ class UserController
 		if (!$user) {
 			return \response(["error" => "user not found"], Response::HTTP_NOT_FOUND);
 		}
-		return $this->articleModel->findAll("where authorId = :user_id", ["user_id" => $userId]);
+		unset($user->password);
+		$articles = $this->articleModel->findAll("where authorId = :user_id", ["user_id" => $userId]);
+		$sectionsMapById = [];
+		foreach ($articles as $article) {
+			$sectionsMapById[$article->sectionId] = null;
+		}
+		$sections = $this->sectionModel->findAllIn("id", array_keys($sectionsMapById));
+
+		foreach ($sections as $section) {
+			$sectionsMapById[$section->id] = $section;
+		}
+
+		foreach ($articles as $article) {
+			$article->author = $user;
+			$article->section = $sectionsMapById[$article->sectionId];
+		}
+		return $articles;
 	}
 }

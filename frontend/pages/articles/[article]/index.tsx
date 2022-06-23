@@ -5,9 +5,10 @@ import { format } from "date-fns";
 import MoreLike from "@components/MoreLike";
 import { GetServerSideProps } from "next";
 import { api } from "@pages/_app";
+import useAuth from "@hooks/useAuth";
 
 const Article = (props) => {
-  console.log(props);
+  const { user, role } = useAuth();
   const {
     author,
     content,
@@ -21,6 +22,11 @@ const Article = (props) => {
   } = props.article;
   return (
     <div className={styles.article}>
+      {(author.id === user?.id || role === "admin") && (
+        <Link href={`/articles/${id}/edit`}>
+          <a className={styles.edit}>edit article</a>
+        </Link>
+      )}
       <div className={styles.intro}>
         <Link href={`/sections/${section.name}`}>
           <a className={styles.section}>{section.name}</a>
@@ -57,7 +63,10 @@ const Article = (props) => {
           <div className={styles.preview}>
             <img src={preview} alt={title} />
           </div>
-          <div dangerouslySetInnerHTML={{ __html: content }}></div>
+          <div
+            dangerouslySetInnerHTML={{ __html: content }}
+            className={styles.html}
+          ></div>
           <div className={styles.tags}>
             <span className={styles.name}>tagged:</span>
             {topics.map((topic, i) => (

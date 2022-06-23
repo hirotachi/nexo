@@ -25,6 +25,7 @@ specifiers:
   next: ^12.1.6
   react: 18.1.0
   react-dom: 18.1.0
+  react-toastify: ^9.0.5
   sass: ^1.51.0
   social-links: ^1.4.5
   swr: ^1.3.0
@@ -50,6 +51,7 @@ dependencies:
   next: 12.1.6_achxnsjje7b5gy3iikucscdeta
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
+  react-toastify: 9.0.5_ef5jwxihqo6n7gxfmzogljlgcm
   social-links: 1.4.5
   swr: 1.3.0_react@18.1.0
   yup: 0.32.11
@@ -4623,6 +4625,17 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  /react-toastify/9.0.5_ef5jwxihqo6n7gxfmzogljlgcm:
+    resolution: {integrity: sha512-dszPCeQINY+Nm6HmsiAXT/7wsazPqv0S/RuhIYLAW+fTKcd3T1iRjZG0XqrN9nvAzqaE5J6uxMaiBrOevxjY8g==}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      clsx: 1.1.1
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    dev: false
 
   /react-transition-group/4.4.2_ef5jwxihqo6n7gxfmzogljlgcm:
     resolution: {integrity: sha512-/RNYfRAMlZwDSr6z4zNKV6xu53/e2BuaBbGhbyYIXTrmgu/bGHzmqOs7mJSJBHy9Ud+ApHx3QjrkKSp1pxvlFg==}

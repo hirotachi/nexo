@@ -21,7 +21,16 @@ function useForm<T>(values: T) {
   const addTouched = (field: keyof T) => {
     setTouched((t) => ({ ...t, [field]: true }));
   };
-  return [state, updateField, { touched, addTouched }, clear] as const;
+  const updateState = (newState: Partial<T>) => {
+    setState((s) => ({ ...s, ...newState }));
+  };
+  return [
+    state,
+    updateField,
+    updateState,
+    { touched, addTouched },
+    clear,
+  ] as const;
 }
 
 export default useForm;

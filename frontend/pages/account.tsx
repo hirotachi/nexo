@@ -6,12 +6,13 @@ import Document from "@tiptap/extension-document";
 import { Paragraph } from "@tiptap/extension-paragraph";
 import { Text } from "@tiptap/extension-text";
 import SocialsInput from "@components/SocialsInput";
-import AvatarInput from "@components/AvatarInput";
 import Dropdown from "@components/Dropdown";
 import useAuth from "@hooks/useAuth";
 import useAuthGuard from "@hooks/useAuthGuard";
 import { API_URL } from "@utils/constants";
 import axios from "axios";
+import withNoSSR from "@lib/withNoSSR";
+import { api } from "@pages/_app";
 
 const accountValues: Pick<
   TUser,
@@ -25,14 +26,21 @@ const accountValues: Pick<
 
 const Account = () => {
   useAuthGuard();
-  const { role, login } = useAuth();
+  const { role, login, user } = useAuth();
 
-  const [accountState, updateAccountState] = useForm(accountValues);
+  const [accountState, updateAccountFieldState, updateAccountState] = useForm(
+    Object.keys(accountValues).reduce((acc, v) => {
+      acc[v] = user?.[v] ?? "";
+      if (v === "socials") {
+        acc[v] = user?.socials ? JSON.parse(user?.socials) : [];
+      }
+      return acc;
+    }, {})
+  );
   const [password, updatePassword] = useForm({
     currentPassword: "",
     newPassword: "",
   });
-  const [currentRole, setCurrentRole] = useState(role);
 
   const [avatar, setAvatar] = useState(
     "https://cdn.dribbble.com/users/42578/avatars/small/d0ac345ce3f79bf2c2e7e64527bbf342.jpg?1530900788"
@@ -40,12 +48,14 @@ const Account = () => {
 
   const handleAccountSubmit: FormEventHandler = (e) => {
     e.preventDefault();
-    console.log(accountState);
+    api.put("/account", accountState).then(({ data }) => {
+      login();
+    });
   };
 
   const handlePasswordSubmit: FormEventHandler = (e) => {
     e.preventDefault();
-    console.log(password);
+    api.put("/password", password).then(({ data }) => {});
   };
 
   const labels: {
@@ -57,7 +67,7 @@ const Account = () => {
 
   const description = useEditor({
     onUpdate: ({ editor }) => {
-      updateAccountState("description", editor.getText());
+      updateAccountFieldState("description", editor.getText());
     },
     extensions: [Document, Paragraph, Text],
     content: accountState.description,
@@ -79,11 +89,11 @@ const Account = () => {
           share.
         </p>
       </div>
-      <AvatarInput
-        value={avatar}
-        onChange={(v) => setAvatar(v)}
-        defaultText={accountState.name}
-      />
+      {/*<AvatarInput*/}
+      {/*  value={avatar}*/}
+      {/*  onChange={(v) => setAvatar(v)}*/}
+      {/*  defaultText={accountState.name}*/}
+      {/*/>*/}
       <form onSubmit={handleAccountSubmit} className={styles.accountForm}>
         {Object.entries(accountState).map(([key, val]) => {
           const k = key as keyof typeof accountState;
@@ -92,7 +102,7 @@ const Account = () => {
               type="text"
               className={styles.input}
               value={accountState[k]}
-              onChange={(e) => updateAccountState(k, e.target.value)}
+              onChange={(e) => updateAccountFieldState(k, e.target.value)}
             />
           );
           switch (key as keyof typeof accountState) {
@@ -107,7 +117,9 @@ const Account = () => {
             case "socials":
               inputComp = (
                 <SocialsInput
-                  onChange={(socials) => updateAccountState("socials", socials)}
+                  onChange={(socials) =>
+                    updateAccountFieldState("socials", socials)
+                  }
                   value={accountState.socials}
                 />
               );
@@ -122,14 +134,16 @@ const Account = () => {
         })}
         <button>save</button>
       </form>
-      <label className={styles.field}>
-        <span className={styles.label}>Choose Your Role</span>
-        <Dropdown
-          value={role}
-          options={["user", "contributor"]}
-          onClick={handleRoleChange}
-        />
-      </label>
+      {role !== "admin" && (
+        <label className={styles.field}>
+          <span className={styles.label}>Choose Your Role</span>
+          <Dropdown
+            value={role}
+            options={["user", "contributor"]}
+            onClick={handleRoleChange}
+          />
+        </label>
+      )}
       <form onSubmit={handlePasswordSubmit} className={styles.passwordForm}>
         <h3 className={styles.heading}>Password Change</h3>
         {Object.entries(password).map(([key, val]) => {
@@ -139,7 +153,7 @@ const Account = () => {
               <span className={styles.label}>{labels[k] ?? k}</span>
               <input
                 className={styles.input}
-                type="text"
+                type="password"
                 value={password[k]}
                 onChange={(e) => updatePassword(k, e.target.value)}
               />
@@ -152,4 +166,4 @@ const Account = () => {
   );
 };
 
-export default Account;
+export default withNoSSR(Account);

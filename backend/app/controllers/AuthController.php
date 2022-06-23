@@ -84,17 +84,17 @@ class AuthController
 	public function updateAccount(Request $request)
 	{
 		$validated = $request->verify([
-			"name" => "string",
-			"email" => "email|unique:users,email",
-			"headline" => "string",
-			"description" => "string",
-			"avatar" => "string",
+			"name" => "alpha_spaces",
+			"headline" => "alpha_spaces",
+			"description" => "alpha_spaces",
+			"avatar" => "alpha",
 			"socials" => "array",
 			"socials.*" => "url"
 		]);
 		$user = Auth::user();
 
-		$updated = $this->userModel->updateByID($user->id, $validated);
+		$updated = $this->userModel->updateByID($user->id,
+			[...$validated, "socials" => json_encode($validated["socials"])]);
 		if (!$updated) {
 			return response(["error" => "account not updated try again"], Response::HTTP_INTERNAL_SERVER_ERROR);
 		}
