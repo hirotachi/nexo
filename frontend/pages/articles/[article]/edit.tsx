@@ -1,21 +1,40 @@
 import React from "react";
 import ArticleForm, { ArticleFormInput } from "@components/ArticleForm";
-import { articleData } from "@utils/data";
+import { api } from "@pages/_app";
+import { GetServerSideProps } from "next";
+import { useRouter } from "next/router";
 
-const Edit = () => {
+const Edit = (props) => {
+  const {
+    article: { author, section, ...article },
+  } = props;
+  const router = useRouter();
   const handleSubmit = (data: ArticleFormInput) => {
-    console.log(data);
+    const articleId = router.query.article;
+    api.put(`/articles/${articleId}`, data).then(({ data }) => {
+      router.push(`/articles/${articleId}`);
+    });
   };
   return (
     <ArticleForm
       onSubmit={handleSubmit}
       values={{
-        ...articleData,
-        topics: articleData.topics.map((v) => v.name),
-        section: articleData.section.name,
+        ...article,
+        topics: article.topics.map((v) => v.name),
+        sectionId: section.id,
       }}
     />
   );
 };
 
 export default Edit;
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { article } = ctx.query;
+  const res = await api.get(`/articles/${article}`);
+  return {
+    props: {
+      article: res.data,
+    },
+  };
+};

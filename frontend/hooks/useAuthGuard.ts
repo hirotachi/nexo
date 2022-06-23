@@ -2,7 +2,7 @@ import useAuth from "@hooks/useAuth";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-function useAuthGuard(wantedRole: TUser["role"][]) {
+function useAuthGuard(wantedRole?: TUser["role"][]) {
   const { isLoggedIn, role } = useAuth();
   const router = useRouter();
   useEffect(() => {

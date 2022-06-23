@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import useClickOutside from "@hooks/useClickOutside";
 import styles from "@modules/Dropdown.module.scss";
 import clsx from "clsx";
@@ -11,10 +11,17 @@ type DropdownProps<T> = {
   options: T[];
   onClick: (option: T) => void;
 };
-const Dropdown = <T extends string | number>(props: DropdownProps<T>) => {
+const Dropdown = <T extends string | number | { label: string; val: any }>(
+  props: DropdownProps<T>
+) => {
   const { options, value, onClick } = props;
   const [isOpen, setIsOpen] = useState(false);
   const ref = useClickOutside(() => isOpen && setIsOpen(false));
+  const current = useMemo(() => {
+    return typeof options[0] === "object"
+      ? options.find((o) => o.val === value)?.label
+      : options.find((o) => o === value);
+  }, [value, options]);
   return (
     <div
       ref={ref}
@@ -22,7 +29,7 @@ const Dropdown = <T extends string | number>(props: DropdownProps<T>) => {
       className={styles.dropdown}
     >
       <span className={styles.current}>
-        {value}
+        {current}
         <span className={styles.btn}>
           <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} />
         </span>
@@ -30,16 +37,16 @@ const Dropdown = <T extends string | number>(props: DropdownProps<T>) => {
       {isOpen && (
         <div className={styles.list}>
           {options.map((option) => {
+            const label = typeof option === "object" ? option.label : option;
+            const val = typeof option === "object" ? option.val : option;
+            const isSelected = val === value;
             return (
               <span
                 onClick={() => onClick(option)}
-                key={option}
-                className={clsx(
-                  styles.option,
-                  option === value && styles.selected
-                )}
+                key={label}
+                className={clsx(styles.option, isSelected && styles.selected)}
               >
-                {option}
+                {label}
               </span>
             );
           })}

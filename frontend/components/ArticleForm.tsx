@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@modules/ArticleForm.module.scss";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
@@ -12,7 +12,7 @@ import clsx from "clsx";
 import { useRouter } from "next/router";
 import EditorControls from "@components/EditorControls";
 import Dropdown from "@components/Dropdown";
-import { routes } from "@utils/constants";
+import useSWR from "swr";
 
 const CustomTitleDocument = Document.extend({
   content: "heading block*",
@@ -24,7 +24,7 @@ export type ArticleFormInput = {
   preview: string;
   content: string;
   summary: string;
-  section: string;
+  sectionId: string;
 };
 
 type ArticleFormProps = {
@@ -37,7 +37,7 @@ const initialState: ArticleFormInput = {
   preview: "",
   content: "",
   summary: "",
-  section: routes[1],
+  sectionId: undefined,
 };
 const ArticleForm = (props: ArticleFormProps) => {
   const { values, onSubmit } = props;
@@ -99,12 +99,17 @@ const ArticleForm = (props: ArticleFormProps) => {
     key: K,
     value: typeof state[K] | ((current: typeof state[K]) => typeof state[K])
   ) => {
-    setState({
-      ...state,
-      [key]: typeof value === "function" ? value(state[key]) : value,
-    });
+    setState((v) => ({
+      ...v,
+      [key]: typeof value === "function" ? value(v[key]) : value,
+    }));
   };
-
+  const sections = useSWR("/sections");
+  useEffect(() => {
+    if (sections.data && state.sectionId === undefined) {
+      updateField("sectionId", sections.data?.[0].id);
+    }
+  }, [sections.data]);
   const router = useRouter();
   return (
     <div className={styles.form}>
@@ -116,9 +121,11 @@ const ArticleForm = (props: ArticleFormProps) => {
       <div className={clsx(styles.field, styles.required)}>
         <span className={styles.label}>Section</span>
         <Dropdown
-          value={state.section}
-          options={routes.slice(1)}
-          onClick={(option) => updateField("section", option)}
+          value={state.sectionId}
+          options={
+            sections.data?.map((s) => ({ val: s.id, label: s.name })) ?? []
+          }
+          onClick={(option) => updateField("sectionId", option.val)}
         />
       </div>
 
@@ -138,6 +145,7 @@ const ArticleForm = (props: ArticleFormProps) => {
         <span className={styles.label}>Preview Image</span>
         <input
           type={"text"}
+          value={state.preview}
           onChange={(e) => updateField("preview", e.target.value)}
           placeholder={"Preview image link"}
         />

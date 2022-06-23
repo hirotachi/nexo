@@ -11,16 +11,13 @@ $border: 1.5px solid $primary-border-color;
   color: $typo-color;
 
   .sub {
-    display: none;
+    display: flex;
     justify-content: space-between;
     @include normalizePadding(1rem);
     align-items: center;
     border-bottom: 1px solid $secondary-border-color;
     font-size: 1.1rem;
     text-transform: uppercase;
-    @include tablet {
-      display: flex;
-    }
 
     .auth {
       display: none;
@@ -30,7 +27,13 @@ $border: 1.5px solid $primary-border-color;
 
       gap: 2rem;
     }
-
+    .logout {
+      cursor: pointer;
+      @include opacityHover;
+      @include tablet {
+        margin-left: 2rem;
+      }
+    }
     .lang {
       margin-left: auto;
       cursor: pointer;

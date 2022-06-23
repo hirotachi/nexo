@@ -53,7 +53,7 @@ class ArticlesController
 		if ($topics) {
 			$this->syncTopics($topics, $article->id);
 		}
-		return ["message" => "success"];
+		return ["message" => "success", "article" => $article];
 	}
 
 	public function update(Request $request)
@@ -214,6 +214,10 @@ class ArticlesController
 			return response(["message" => "Article not found"], Response::HTTP_NOT_FOUND);
 		}
 		$article->author = $this->userModel->findByID($article->authorId);
+		$article->section = $this->sectionModel->findByID($article->sectionId);
+		$article->topics = $this->topicModel->findAllIn("id", array_map(function ($articleTopic) {
+			return $articleTopic->topicId;
+		}, $this->articleTopicModel->findAllIn("articleId", [$article->id])));
 		return $article;
 	}
 

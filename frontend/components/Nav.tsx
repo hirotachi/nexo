@@ -8,23 +8,56 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import faUser from "@icons/solid/faUser";
 import { getSiteName } from "@utils/helpers";
 import faSearch from "@icons/regular/faSearch";
+import useAuth from "@hooks/useAuth";
 
 const Nav = () => {
+  const { isLoggedIn, role, logout } = useAuth();
   return (
     <div className={styles.nav}>
       <div className={styles.sub}>
         <div className={styles.auth}>
-          <Link href={"/login"}>
-            <a>Sign In</a>
-          </Link>
-          <Link href={"/register"}>
-            <a>Create an account</a>
-          </Link>
+          {!isLoggedIn ? (
+            <>
+              <Link href={"/login"}>
+                <a>Sign In</a>
+              </Link>
+              <Link href={"/register"}>
+                <a>Create an account</a>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link href={"/account"}>
+                <a>account</a>
+              </Link>
+              <Link href={"/profile"}>
+                <a>profile</a>
+              </Link>
+              {role === "admin" && (
+                <Link href={"/admin/users"}>
+                  <a>users dashboard</a>
+                </Link>
+              )}
+              {role === "admin" && (
+                <Link href={"/admin/articles"}>
+                  <a>articles dashboard</a>
+                </Link>
+              )}
+            </>
+          )}
         </div>
-        <Link href={"/articles/create"}>
-          <a className={styles.lang}>create article</a>
-        </Link>
+        {isLoggedIn && (
+          <span onClick={logout} className={styles.logout}>
+            logout
+          </span>
+        )}
+        {(role === "contributor" || role === "admin") && (
+          <Link href={"/articles/create"}>
+            <a className={styles.lang}>create article</a>
+          </Link>
+        )}
       </div>
+
       <div className={styles.main}>
         <MobileNav />
         <Link href={"/"}>

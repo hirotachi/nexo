@@ -7,6 +7,11 @@ import { Paragraph } from "@tiptap/extension-paragraph";
 import { Text } from "@tiptap/extension-text";
 import SocialsInput from "@components/SocialsInput";
 import AvatarInput from "@components/AvatarInput";
+import Dropdown from "@components/Dropdown";
+import useAuth from "@hooks/useAuth";
+import useAuthGuard from "@hooks/useAuthGuard";
+import { API_URL } from "@utils/constants";
+import axios from "axios";
 
 const accountValues: Pick<
   TUser,
@@ -19,11 +24,16 @@ const accountValues: Pick<
 };
 
 const Account = () => {
+  useAuthGuard();
+  const { role, login } = useAuth();
+
   const [accountState, updateAccountState] = useForm(accountValues);
   const [password, updatePassword] = useForm({
     currentPassword: "",
     newPassword: "",
   });
+  const [currentRole, setCurrentRole] = useState(role);
+
   const [avatar, setAvatar] = useState(
     "https://cdn.dribbble.com/users/42578/avatars/small/d0ac345ce3f79bf2c2e7e64527bbf342.jpg?1530900788"
   );
@@ -52,6 +62,13 @@ const Account = () => {
     extensions: [Document, Paragraph, Text],
     content: accountState.description,
   });
+  const handleRoleChange = (role) => {
+    axios
+      .put(`${API_URL}/role`, { role }, { withCredentials: true })
+      .then(({ data }) => {
+        login();
+      });
+  };
 
   return (
     <div className={styles.account}>
@@ -105,6 +122,14 @@ const Account = () => {
         })}
         <button>save</button>
       </form>
+      <label className={styles.field}>
+        <span className={styles.label}>Choose Your Role</span>
+        <Dropdown
+          value={role}
+          options={["user", "contributor"]}
+          onClick={handleRoleChange}
+        />
+      </label>
       <form onSubmit={handlePasswordSubmit} className={styles.passwordForm}>
         <h3 className={styles.heading}>Password Change</h3>
         {Object.entries(password).map(([key, val]) => {
