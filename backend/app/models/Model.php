@@ -92,6 +92,9 @@ abstract class Model
 
 	public function findAllIn(string $field, array $values, int $limit = null, int $offset = null): bool|array
 	{
+		if (count($values) == 0) {
+			return [];
+		}
 		$placeholders = implode(", ", array_fill(0, count($values), "?"));
 		return $this->findAll("where $field in ($placeholders)", $values, limit: $limit, offset: $offset);
 	}

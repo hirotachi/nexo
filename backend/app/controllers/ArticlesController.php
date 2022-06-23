@@ -214,11 +214,39 @@ class ArticlesController
 			return response(["message" => "Article not found"], Response::HTTP_NOT_FOUND);
 		}
 		$article->author = $this->userModel->findByID($article->authorId);
+		unset($article->author->password);
 		$article->section = $this->sectionModel->findByID($article->sectionId);
 		$article->topics = $this->topicModel->findAllIn("id", array_map(function ($articleTopic) {
 			return $articleTopic->topicId;
 		}, $this->articleTopicModel->findAllIn("articleId", [$article->id])));
-		return $article;
+		$related = $this->articleModel->findAll("where sectionId = :sectionId and id != :id", [
+			"sectionId" => $article->sectionId,
+			"id" => $article->id
+		], limit: 5);
+		if (count($related) > 0) {
+			$authorsMapById = [];
+			$sectionsMapById = [];
+			foreach ($related as $relatedArticle) {
+				$authorsMapById[$relatedArticle->authorId] = null;
+				$sectionsMapById[$relatedArticle->sectionId] = null;
+			}
+			$authors = $this->userModel->findAllIn("id", array_keys($authorsMapById));
+			$sections = $this->sectionModel->findAllIn("id", array_keys($sectionsMapById));
+			foreach ($authors as $author) {
+				unset($author->password);
+				$authorsMapById[$author->id] = $author;
+			}
+			foreach ($sections as $section) {
+				$sectionsMapById[$section->id] = $section;
+			}
+			foreach ($related as $articleData) {
+				$articleData->author = $authorsMapById[$articleData->authorId];
+				$articleData->section = $sectionsMapById[$articleData->sectionId];
+			}
+		}
+
+
+		return ["article" => $article, "related" => $related];
 	}
 
 	private function syncTopics(array $topics, int $articleId): void

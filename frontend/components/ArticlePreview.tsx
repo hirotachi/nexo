@@ -50,7 +50,7 @@ const ArticlePreview = (props: ArticlePreviewProps) => {
         </a>
       </Link>
       <div className={styles.main}>
-        <Link href={`/section/${section.id}`}>
+        <Link href={`/sections/${section.name}`}>
           <a className={styles.section}>{section.name}</a>
         </Link>
         <Link href={link}>

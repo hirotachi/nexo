@@ -104,7 +104,7 @@ class AuthController
 	public function changeRole(Request $request)
 	{
 		$validated = $request->verify([
-			"role" => "in:user|contributor"
+			"role" => "in:user,contributor"
 		]);
 		$user = Auth::user();
 		$updated = $this->userModel->updateByID($user->id, ["role" => $validated["role"]]);

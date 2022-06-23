@@ -28,7 +28,7 @@ const SecondaryArticlePreview = (props: SecondaryArticlePreviewProps) => {
       </Link>
       <div className={styles.main}>
         {!hideSection && (
-          <Link href={`/sections/${section.id}`}>
+          <Link href={`/sections/${section.name}`}>
             <a className={styles.topic}>{section.name}</a>
           </Link>
         )}
